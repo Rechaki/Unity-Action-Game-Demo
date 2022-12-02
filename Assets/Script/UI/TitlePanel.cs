@@ -40,8 +40,8 @@ public class TitlePanel : UIPanel
         LevelManager.I.LoadScene("Game");
     }
 
-    void LoadGameScene(float num, InputManager.ActionState state) {
-        if (state != InputManager.ActionState.UI || num == 0)
+    void LoadGameScene(InputManager.ActionState state) {
+        if (state != InputManager.ActionState.UI)
         {
             return;
         }

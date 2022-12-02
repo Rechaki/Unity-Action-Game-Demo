@@ -43,16 +43,13 @@ public class ChoosePanel : UIPanel
         GlobalMessenger.Launch(EventMsg.GameStart);
     }
 
-    void OnStartGame(float num, InputManager.ActionState state)
+    void OnStartGame(InputManager.ActionState state)
     {
         if (state == InputManager.ActionState.UI)
         {
-            if (num == 1)
-            {
-                _chooseBtns[_index].InitCharacterData();
-                gameObject.SetActive(false);
-                GlobalMessenger.Launch(EventMsg.GameStart);
-            }
+            _chooseBtns[_index].InitCharacterData();
+            gameObject.SetActive(false);
+            GlobalMessenger.Launch(EventMsg.GameStart);
         }
     }
 

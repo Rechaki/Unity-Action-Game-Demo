@@ -18,10 +18,10 @@ public class InputManager : Singleton<InputManager>
     public event DevicesChanged DevicesChangedEvent;
     public event InputDataWithVector2 LeftStcikEvent;
     public event InputDataWithVector2 RightStcikEvent;
-    public event InputDataWithFloat RightBtnEEvent;
-    public event InputDataWithFloat RightBtnSEvent; 
-    public event InputDataWithFloat RightBtnWEvent;
-    public event InputDataWithFloat RightBtnNEvent;
+    public event InputButtonPerformed RightBtnEEvent;
+    public event InputButtonPerformed RightBtnSEvent; 
+    public event InputButtonPerformed RightBtnWEvent;
+    public event InputButtonPerformed RightBtnNEvent;
 
     public enum Devices
     {
@@ -44,10 +44,11 @@ public class InputManager : Singleton<InputManager>
 
     Vector2 _leftStcikValue = Vector2.zero;
     Vector2 _rightStcikValue = Vector2.zero;
-    float _rightBtnE = 0;
-    float _rightBtnS = 0;
-    float _rightBtnW = 0;
-    float _rightBtnN = 0;
+
+    KeyControl[] keyboardRightEBtns = { Keyboard.current.cKey, Keyboard.current.lKey };
+    KeyControl[] keyboardRightSBtns = { Keyboard.current.xKey, Keyboard.current.kKey };
+    KeyControl[] keyboardRightWBtns = { Keyboard.current.zKey, Keyboard.current.jKey };
+    KeyControl[] keyboardRightNBtns = { Keyboard.current.sKey, Keyboard.current.iKey };
 
     void Start() {
         Init();
@@ -67,17 +68,11 @@ public class InputManager : Singleton<InputManager>
                 break;
         }
 
-        LeftStcikEvent?.Invoke(_leftStcikValue, CurrentActionState);
-        RightStcikEvent?.Invoke(_rightStcikValue, CurrentActionState);
-        RightBtnEEvent?.Invoke(_rightBtnE, CurrentActionState);
-        RightBtnSEvent?.Invoke(_rightBtnS, CurrentActionState);
-        RightBtnWEvent?.Invoke(_rightBtnW, CurrentActionState);
-        RightBtnNEvent?.Invoke(_rightBtnN, CurrentActionState);
     }
 
-    //void OnDestroy() {
+    void OnDestroy() {
 
-    //}
+    }
 
     void Init() {
         RefreshInputType();
@@ -131,21 +126,78 @@ public class InputManager : Singleton<InputManager>
         {
             inputValue.x = 1;
         }
+        else if(Keyboard.escapeKey.isPressed)
+        {
+            Application.Quit();
+        }
         _leftStcikValue = inputValue;
         _rightStcikValue = Mouse.position.ReadValue();
-        _rightBtnE = (Keyboard.cKey.isPressed && Keyboard.cKey.wasPressedThisFrame || Keyboard.lKey.isPressed && Keyboard.lKey.wasPressedThisFrame) ? 1 : 0;
-        _rightBtnS = (Keyboard.xKey.isPressed && Keyboard.xKey.wasPressedThisFrame || Keyboard.kKey.isPressed && Keyboard.kKey.wasPressedThisFrame) ? 1 : 0;
-        _rightBtnW = (Keyboard.zKey.isPressed && Keyboard.zKey.wasPressedThisFrame || Keyboard.jKey.isPressed && Keyboard.jKey.wasPressedThisFrame) ? 1 : 0;
-        _rightBtnN = (Keyboard.sKey.isPressed && Keyboard.sKey.wasPressedThisFrame || Keyboard.iKey.isPressed && Keyboard.iKey.wasPressedThisFrame) ? 1 : 0;
+
+        LeftStcikEvent?.Invoke(_leftStcikValue, CurrentActionState);
+        RightStcikEvent?.Invoke(_rightStcikValue, CurrentActionState);
+
+        foreach (var button in keyboardRightEBtns)
+        {
+            if (button.isPressed && button.wasPressedThisFrame)
+            {
+                RightBtnEEvent?.Invoke(CurrentActionState);
+                break;
+            }
+        }
+
+        foreach (var button in keyboardRightSBtns)
+        {
+            if (button.isPressed && button.wasPressedThisFrame)
+            {
+                RightBtnSEvent?.Invoke(CurrentActionState);
+                break;
+            }
+        }
+
+        foreach (var button in keyboardRightWBtns)
+        {
+            if (button.isPressed && button.wasPressedThisFrame)
+            {
+                RightBtnWEvent?.Invoke(CurrentActionState);
+                break;
+            }
+        }
+
+        foreach (var button in keyboardRightNBtns)
+        {
+            if (button.isPressed && button.wasPressedThisFrame)
+            {
+                RightBtnNEvent?.Invoke(CurrentActionState);
+                break;
+            }
+        }
+
     }
 
     void GamepadInput() {
         _leftStcikValue = Gamepad.leftStick.ReadValue();
         _rightStcikValue = Gamepad.rightStick.ReadValue();
-        _rightBtnE = Gamepad.buttonEast.ReadValue();
-        _rightBtnS = Gamepad.buttonSouth.ReadValue();
-        _rightBtnW = Gamepad.buttonWest.ReadValue();
-        _rightBtnN = Gamepad.buttonNorth.ReadValue();
+
+        LeftStcikEvent?.Invoke(_leftStcikValue, CurrentActionState);
+        RightStcikEvent?.Invoke(_rightStcikValue, CurrentActionState);
+
+        if (Gamepad.buttonEast.isPressed && Gamepad.buttonEast.wasPressedThisFrame)
+        {
+            RightBtnEEvent?.Invoke(CurrentActionState);
+        }
+        if (Gamepad.buttonSouth.isPressed && Gamepad.buttonSouth.wasPressedThisFrame)
+        {
+            RightBtnSEvent?.Invoke(CurrentActionState);
+        }
+        if (Gamepad.buttonWest.isPressed && Gamepad.buttonWest.wasPressedThisFrame)
+        {
+            RightBtnWEvent?.Invoke(CurrentActionState);
+        }
+        if (Gamepad.buttonNorth.isPressed && Gamepad.buttonNorth.wasPressedThisFrame)
+        {
+            RightBtnNEvent?.Invoke(CurrentActionState);
+        }
+
     }
 
 }

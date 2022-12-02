@@ -117,37 +117,34 @@ public class Character : MonoBehaviour
         }
     }
 
-    void Attack(float num, InputManager.ActionState state) {
+    void Attack(InputManager.ActionState state) {
         if (state == InputManager.ActionState.Game)
         {
-            if (num > 0)
-            {
-                _currentState = StateMachine.Attack;
-                _animator.SetTrigger("Attack");
+            _currentState = StateMachine.Attack;
+            _animator.SetTrigger("Attack");
 
-                if (_timer > _characterData.Skill.cd)
+            if (_timer > _characterData.Skill.cd)
+            {
+                _timer = 0;
+                var bulletObject = ObjectPool.I.Create(_bulletPrefab);
+                bulletObject.transform.position = _firePoint.position;
+                if (transform.localScale.x > 0)
                 {
-                    _timer = 0;
-                    var bulletObject = ObjectPool.I.Create(_bulletPrefab);
-                    bulletObject.transform.position = _firePoint.position;
-                    if (transform.localScale.x > 0)
-                    {
-                        bulletObject.transform.localScale = new Vector3(Mathf.Abs(bulletObject.transform.localScale.x),
-                            bulletObject.transform.localScale.y, bulletObject.transform.localScale.z);
-                    }
-                    else if(transform.localScale.x < 0)
-                    {
-                        bulletObject.transform.localScale = new Vector3(-Mathf.Abs(bulletObject.transform.localScale.x),
-                            bulletObject.transform.localScale.y, bulletObject.transform.localScale.z);
-                    }
-                    
-                    Bullet bullet = bulletObject.GetComponent<Bullet>();
-                    bullet.owner = _characterData;
-                    bullet.skillData = _characterData.Skill;
-                    bullet.moveDirection = new Vector3(-transform.localScale.x, 0, 0).normalized;
-                    bullet.speed = _characterData.NowAtkSpeed;
-                    bullet.gameObject.SetActive(true);
+                    bulletObject.transform.localScale = new Vector3(Mathf.Abs(bulletObject.transform.localScale.x),
+                        bulletObject.transform.localScale.y, bulletObject.transform.localScale.z);
                 }
+                else if (transform.localScale.x < 0)
+                {
+                    bulletObject.transform.localScale = new Vector3(-Mathf.Abs(bulletObject.transform.localScale.x),
+                        bulletObject.transform.localScale.y, bulletObject.transform.localScale.z);
+                }
+
+                Bullet bullet = bulletObject.GetComponent<Bullet>();
+                bullet.owner = _characterData;
+                bullet.skillData = _characterData.Skill;
+                bullet.moveDirection = new Vector3(-transform.localScale.x, 0, 0).normalized;
+                bullet.speed = _characterData.NowAtkSpeed;
+                bullet.gameObject.SetActive(true);
             }
         }
     }

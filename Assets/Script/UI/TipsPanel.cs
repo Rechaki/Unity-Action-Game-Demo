@@ -64,8 +64,8 @@ public class TipsPanel : UIPanel
         _keyBoardTips.SetActive(false);
     }
 
-    void OnNext(float num, InputManager.ActionState state) {
-        if (state != InputManager.ActionState.UI || num == 0)
+    void OnNext(InputManager.ActionState state) {
+        if (state != InputManager.ActionState.UI)
         {
             return;
         }
