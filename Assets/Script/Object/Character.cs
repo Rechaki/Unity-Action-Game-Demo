@@ -11,15 +11,12 @@ public class Character : MonoBehaviour
     [SerializeField]
     ColliderEvents _damageColliderEvents;
     [SerializeField]
-    Animator _animator;
+    UnitMove _movement;
     [SerializeField]
-    float _hpPositionY;
+    UnitAnimator _animator;
 
     StateMachine _currentState;
-    Movement _movement;
     CharacterData _characterData;
-    AnimatorStateInfo _currentAnimation;
-    GameObject _hpBarObject;
     GameObject _bulletPrefab;
     protected float _timeScale = 1.0f;
     protected List<BuffData> _buffs = new List<BuffData>();
@@ -43,17 +40,12 @@ public class Character : MonoBehaviour
 
             _bulletPrefab = ResourceManager.I.Load<GameObject>(AssetPath.CHARACTER_BULLET);
 
-            _movement = GetComponent<Movement>();
-            _movement.moveSpeed = _characterData.NowMoveSpeed;
+            //_movement = GetComponent<Movement>();
+            //_movement.moveSpeed = _characterData.NowMoveSpeed;
 
             InputManager.I.LeftStcikEvent += Move;
             InputManager.I.RightBtnWEvent += Attack;
-            _damageColliderEvents.OnTriggerEnterEvent += OnDamageTriggerEnter;
-
-            var hpBarPefab = ResourceManager.I.Load<GameObject>(AssetPath.HP_BAR);
-            _hpBarObject = ObjectPool.I.Create(hpBarPefab);
-            _hpBarObject.GetComponent<HPBar>().SetValue(1);
-            _hpBarObject.SetActive(true);
+            //_damageColliderEvents.OnTriggerEnterEvent += OnDamageTriggerEnter;
 
             _currentState = StateMachine.Idle;
 
@@ -65,21 +57,17 @@ public class Character : MonoBehaviour
         if (_currentState != StateMachine.Dead)
         {
             _timer += Time.deltaTime;
-            if (_hpBarObject != null)
-            {
-                _hpBarObject.transform.position = transform.position + new Vector3(0, _hpPositionY, 0);
-            }
 
-            AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
-            if (stateInfo.fullPathHash == Animator.StringToHash("Base Layer.Attack") && _animator.IsInTransition(0))
-            {
-                _currentState = StateMachine.Idle;
-            }
+            //AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+            //if (stateInfo.fullPathHash == Animator.StringToHash("Base Layer.Attack") && _animator.IsInTransition(0))
+            //{
+            //    _currentState = StateMachine.Idle;
+            //}
 
-            if (_weapon != null)
-            {
-                _weapon.gameObject.SetActive(_currentState == StateMachine.Attack);
-            }
+            //if (_weapon != null)
+            //{
+            //    _weapon.gameObject.SetActive(_currentState == StateMachine.Attack);
+            //}
 
             StateUpdate();
         }
@@ -89,7 +77,7 @@ public class Character : MonoBehaviour
         _characterData.RefreshEvent -= Refresh;
         InputManager.I.LeftStcikEvent -= Move;
         InputManager.I.RightBtnWEvent -= Attack;
-        _damageColliderEvents.OnTriggerEnterEvent -= OnDamageTriggerEnter;
+        //_damageColliderEvents.OnTriggerEnterEvent -= OnDamageTriggerEnter;
     }
 
 #if UNITY_EDITOR
@@ -106,22 +94,21 @@ public class Character : MonoBehaviour
             return;
         }
         _movement.moveSpeed = data.NowMoveSpeed;
-        _hpBarObject.GetComponent<HPBar>().SetValue((float)data.NowHP / (float)data.MaxHP);
     }
 
     void Move(Vector2 v, InputManager.ActionState state) {
-        if (state == InputManager.ActionState.Game)
-        {
-            _animator.SetFloat("Move", Mathf.Abs(v.x) + Mathf.Abs(v.y));
-            _movement.Move(v);
-        }
+        //if (state == InputManager.ActionState.Game)
+        //{
+        //    _animator.SetFloat("Move", Mathf.Abs(v.x) + Mathf.Abs(v.y));
+        //    _movement.Move(v);
+        //}
     }
 
     void Attack(InputManager.ActionState state) {
         if (state == InputManager.ActionState.Game)
         {
             _currentState = StateMachine.Attack;
-            _animator.SetTrigger("Attack");
+            //_animator.SetTrigger("Attack");
 
             if (_timer > _characterData.Skill.cd)
             {
@@ -149,7 +136,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    void OnDamageTriggerEnter(Collider2D collider) {
+    void OnDamageTriggerEnter(Collider collider) {
         if (collider.tag == "Enemy")
         {
             //_characterData.OnHit(collider.transform.GetComponent<EnemyUnit>());

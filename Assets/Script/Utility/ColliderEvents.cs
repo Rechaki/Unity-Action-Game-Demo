@@ -5,8 +5,8 @@ public class ColliderEvents : MonoBehaviour
 {
 	public bool debug;
 
-	public delegate void TriggerEvent(Collider2D collider);
-	public delegate void CollisionEvent(Collision2D collision);
+	public delegate void TriggerEvent(Collider collider);
+	public delegate void CollisionEvent(Collision collision);
 
 	public event TriggerEvent OnTriggerEnterEvent;
 	public event TriggerEvent OnTriggerExitEvent;
@@ -15,7 +15,7 @@ public class ColliderEvents : MonoBehaviour
 	public event CollisionEvent OnCollisionExitEvent;
 	public event CollisionEvent OnCollisionStayEvent;
 
-	void OnTriggerEnter2D(Collider2D collider) {
+    void OnTriggerEnter(Collider collider) {
 		if (debug)
 		{
 			Debug.Log($"Collider Name on <color=yellow>OnTriggerEnter2D</color>:  {collider.gameObject.name}");
@@ -28,7 +28,7 @@ public class ColliderEvents : MonoBehaviour
 		onTriggerEnterEvent(collider);
 	}
 
-	void OnTriggerExit2D(Collider2D collider) {
+	void OnTriggerExit(Collider collider) {
 		if (debug)
 		{
 			Debug.Log($"Collider Name on <color=yellow>OnTriggerExit2D</color>:  {collider.gameObject.name}");
@@ -41,7 +41,7 @@ public class ColliderEvents : MonoBehaviour
 		onTriggerExitEvent(collider);
 	}
 
-	void OnTriggerStay2D(Collider2D collider) {
+	void OnTriggerStay(Collider collider) {
 		if (debug)
 		{
 			Debug.Log($"Collider Name on <color=yellow>OnTriggerStay2D</color>:  {collider.gameObject.name}");
@@ -53,8 +53,7 @@ public class ColliderEvents : MonoBehaviour
 		}
 		onTriggerStayEvent(collider);
 	}
-
-	void OnCollisionEnter2D(Collision2D collision) {
+    void OnCollisionEnter(Collision collision) {
 		if (debug)
 		{
 			Debug.Log($"Collision Name on <color=green>OnCollisionEnter2D</color>:  {collision.gameObject.name}");
@@ -67,7 +66,7 @@ public class ColliderEvents : MonoBehaviour
 		onCollisionEnterEvent(collision);
 	}
 
-	void OnCollisionExit2D(Collision2D collision) {
+	void OnCollisionExit(Collision collision) {
 		if (debug)
 		{
 			Debug.Log($"Collision Name on <color=green>OnCollisionExit2D</color>:  {collision.gameObject.name}");
@@ -80,7 +79,7 @@ public class ColliderEvents : MonoBehaviour
 		onCollisionExitEvent(collision);
 	}
 
-	void OnCollisionStay2D(Collision2D collision) {
+	void OnCollisionStay(Collision collision) {
         if (debug)
         {
 			Debug.Log($"Collision Name on <color=green>OnCollisionStay2D</color>:  {collision.gameObject.name}");
