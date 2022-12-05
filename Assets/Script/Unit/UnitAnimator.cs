@@ -9,19 +9,56 @@ public class UnitAnimator : MonoBehaviour
     [SerializeField]
     Animator _animator;
 
-    AnimatorStateInfo _currentAnimation;
+    string _currentAnimation = "Idle";
 
-    public void Play(string name)
-    {
+    void Update() {
+        AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+        if (stateInfo.IsName("Idle"))
+        {
+            _currentAnimation = "Idle";
+        }
+    }
+
+    void OnAnimatorMove() {
+        var deltaPosition = _animator.deltaPosition;
+
+        transform.position += deltaPosition / Time.deltaTime;
+    }
+
+    public Vector3 DeltaPosition() {
+        return _animator.deltaPosition;
+    }
+
+    public void Play(string name) {
         if (_animator == null)
         {
             Debug.LogError("Animator is NULL!");
             return;
         }
-        if (_currentAnimation.IsName(name) == false)
+
+        if (_currentAnimation.Equals(name) == false)
         {
             _animator.Play(name);
+            _currentAnimation = name;
         }
 
+    }
+
+    public void CrossFade(string name, float duration, int layer = -1) {
+        if (_animator == null)
+        {
+            Debug.LogError("Animator is NULL!");
+            return;
+        }
+
+        if (_currentAnimation.Equals(name) == false)
+        {
+            _animator.CrossFade(name, duration, layer);
+            _currentAnimation = name;
+        }
+    }
+
+    public void SetFloat(string name, float value) {
+        _animator.SetFloat(name, value);
     }
 }

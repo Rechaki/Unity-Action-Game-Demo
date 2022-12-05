@@ -38,3 +38,10 @@ public struct EnemyBaseData
     public float viewAngle;
     public string skillId;
 }
+
+public struct AnimationData
+{
+    public string name;
+    public float duration;
+    public int priority;
+}
