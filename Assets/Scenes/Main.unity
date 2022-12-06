@@ -191,10 +191,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7764487651825262745, guid: a32bb565fe3a3f8489efd9126b942de6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a32bb565fe3a3f8489efd9126b942de6,
         type: 3}
       propertyPath: m_Name
       value: Paladin J Nordstrom
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051571768989249988, guid: a32bb565fe3a3f8489efd9126b942de6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: a32bb565fe3a3f8489efd9126b942de6,
         type: 3}
