@@ -21,14 +21,6 @@ public class UnitMove : MonoBehaviour
     Vector3 _smoothInputShift = Vector3.zero;
     Vector3 _footHitNormal = Vector3.zero;
 
-    void Start()
-    {
-        if (_rigidbody == null)
-        {
-            Debug.LogError("Rigidbody is NULL !");
-        }
-    }
-
     public void MoveWithPosition(Vector2 v)
     {
         _inputShift = DiagonalMoveNum(v);
@@ -38,6 +30,11 @@ public class UnitMove : MonoBehaviour
 
     public void MoveWithRigidbody(Vector2 v)
     {
+        if (_rigidbody == null)
+        {
+            Debug.LogError("Rigidbody is NULL !");
+        }
+
         _inputShift = DiagonalMoveNum(v);
         if (OnSlope())
         {

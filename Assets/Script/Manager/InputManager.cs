@@ -159,37 +159,25 @@ public class InputManager : Singleton<InputManager>
         LeftStcikEvent?.Invoke(_leftStcikValue, CurrentActionState);
         RightStcikEvent?.Invoke(_rightStcikValue, CurrentActionState);
 
+        if (Keyboard.eKey.isPressed && Keyboard.eKey.wasPressedThisFrame)
+        {
+            RightBtnEEvent?.Invoke(CurrentActionState);
+        }
+
         if (Keyboard.spaceKey.isPressed && Keyboard.spaceKey.wasPressedThisFrame)
         {
             RightBtnSEvent?.Invoke(CurrentActionState);
         }
 
-        //foreach (var button in _keyboardRightEBtns)
-        //{
-        //    if (button.isPressed && button.wasPressedThisFrame)
-        //    {
-        //        RightBtnEEvent?.Invoke(CurrentActionState);
-        //        break;
-        //    }
-        //}
+        if (Keyboard.qKey.isPressed && Keyboard.qKey.wasPressedThisFrame)
+        {
+            RightBtnWEvent?.Invoke(CurrentActionState);
+        }
 
-        //foreach (var button in _keyboardRightSBtns)
-        //{
-        //    if (button.isPressed && button.wasPressedThisFrame)
-        //    {
-        //        RightBtnSEvent?.Invoke(CurrentActionState);
-        //        break;
-        //    }
-        //}
-
-        //foreach (var button in _keyboardRightWBtns)
-        //{
-        //    if (button.isPressed && button.wasPressedThisFrame)
-        //    {
-        //        RightBtnWEvent?.Invoke(CurrentActionState);
-        //        break;
-        //    }
-        //}
+        if (Mouse.leftButton.isPressed && Mouse.leftButton.wasPressedThisFrame)
+        {
+            RightBtnNEvent?.Invoke(CurrentActionState);
+        }
 
         //foreach (var button in _keyboardRightNBtns)
         //{

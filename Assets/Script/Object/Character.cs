@@ -25,6 +25,8 @@ public class Character : MonoBehaviour
     float _timer = 0.0f;
     bool _init = false;
 
+    const string DefaultState = "Idle";
+
     private void Start() {
         Init();
     }
@@ -33,8 +35,9 @@ public class Character : MonoBehaviour
         if (!_init)
         {
             InputManager.I.LeftStcikEvent += MoveAndRotate;
-            InputManager.I.RightBtnWEvent += Attack;
+            InputManager.I.RightBtnWEvent += SwitchAttack;
             InputManager.I.RightBtnSEvent += Roll;
+            InputManager.I.RightBtnNEvent += Attack;
             //_damageColliderEvents.OnTriggerEnterEvent += OnDamageTriggerEnter;
 
             _currentState = StateMachine.Idle;
@@ -44,56 +47,57 @@ public class Character : MonoBehaviour
     }
 
     void Update() {
-        if (_currentState != StateMachine.Dead)
-        {
-            _timer += Time.deltaTime;
+        //_timer += Time.deltaTime;
 
-            //AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
-            //if (stateInfo.fullPathHash == Animator.StringToHash("Base Layer.Attack") && _animator.IsInTransition(0))
-            //{
-            //    _currentState = StateMachine.Idle;
-            //}
-
-            StateUpdate();
-        }
     }
 
     void OnDestroy() {
         if (InputManager.I != null)
         {
             InputManager.I.LeftStcikEvent -= MoveAndRotate;
-            InputManager.I.RightBtnWEvent -= Attack;
+            InputManager.I.RightBtnWEvent -= SwitchAttack;
             InputManager.I.RightBtnSEvent -= Roll;
+            InputManager.I.RightBtnNEvent -= Attack;
             //_damageColliderEvents.OnTriggerEnterEvent -= OnDamageTriggerEnter;
         }
     }
 
-//#if UNITY_EDITOR
-//    void OnDrawGizmos() {
-//        Gizmos.DrawWireSphere(transform.position, _atkRadio);
-//    }
-//#endif
-
     void MoveAndRotate(Vector2 v, InputManager.ActionState state) {
         if (state == InputManager.ActionState.Game)
         {
-            //_animator.Play("MoveBlendTree");
-            //_animator.SetFloat("Move", Mathf.Abs(v.x) + Mathf.Abs(v.y));
-            //_movement.MoveWithRigidbody(v);
-            //_rotate.Rotate(v);
+            //_animator.Play("Idle");
+            _animator.SetFloat("Move", Mathf.Abs(v.x) + Mathf.Abs(v.y));
+            _rotate.Rotate(v);
         }
+    }
+
+    void LockOnMove(Vector2 v, InputManager.ActionState state)
+    {
+        _animator.SetFloat("X", v.x);
+        _animator.SetFloat("Y", v.y);
     }
 
     void Roll(InputManager.ActionState state) {
         if (state == InputManager.ActionState.Game)
         {
-            _animator.Play("Roll");
-            //_movement.Roll();
+            _animator.SetTrigger("RightBtnS");
         }
     }
 
-    void Attack(InputManager.ActionState state) {
+    void SwitchAttack(InputManager.ActionState state)
+    {
+        if (state == InputManager.ActionState.Game)
+        {
+            _animator.SetTrigger("RightBtnW");
+        }
+    }
 
+    void Attack(InputManager.ActionState state)
+    {
+        if (state == InputManager.ActionState.Game)
+        {
+            _animator.SetTrigger("RightBtnN");
+        }
     }
 
     void OnDamageTriggerEnter(Collider collider) {

@@ -4,29 +4,31 @@ using UnityEngine;
 
 public class UnitAnimator : MonoBehaviour
 {
+    public Transform parent;
     public float timeScale = 1.0f;
+
+    public AnimatorStateInfo CurrentAnimation => _currentAnimation;
 
     [SerializeField]
     Animator _animator;
 
-    string _currentAnimation = "Idle";
-
+    AnimatorStateInfo _currentAnimation;
+    
     void Update() {
-        AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
-        if (stateInfo.IsName("Idle"))
+        _currentAnimation = _animator.GetCurrentAnimatorStateInfo(0);
+    }
+
+    private void OnAnimatorMove()
+    {
+        if (parent == null)
         {
-            _currentAnimation = "Idle";
+            Debug.LogWarning("Parent is NULL!!");
+            return;
         }
-    }
-
-    void OnAnimatorMove() {
         var deltaPosition = _animator.deltaPosition;
-
-        transform.position += deltaPosition / Time.deltaTime;
-    }
-
-    public Vector3 DeltaPosition() {
-        return _animator.deltaPosition;
+        parent.position += deltaPosition;
+        //var deltaRotation = _animator.deltaRotation;
+        //parent.localRotation = deltaRotation * parent.localRotation;
     }
 
     public void Play(string name) {
@@ -36,10 +38,9 @@ public class UnitAnimator : MonoBehaviour
             return;
         }
 
-        if (_currentAnimation.Equals(name) == false)
+        if (_currentAnimation.IsName(name) == false)
         {
             _animator.Play(name);
-            _currentAnimation = name;
         }
 
     }
@@ -51,14 +52,22 @@ public class UnitAnimator : MonoBehaviour
             return;
         }
 
-        if (_currentAnimation.Equals(name) == false)
+        if (_currentAnimation.IsName(name) == false)
         {
             _animator.CrossFade(name, duration, layer);
-            _currentAnimation = name;
         }
+    }
+
+    public void SetBool(string name, bool value)
+    {
+        _animator.SetBool(name, value);
     }
 
     public void SetFloat(string name, float value) {
         _animator.SetFloat(name, value);
+    }
+
+    public void SetTrigger(string name) {
+        _animator.SetTrigger(name);
     }
 }
