@@ -18,7 +18,6 @@ public class CameraControl : MonoBehaviour
     float _angleX;
     float _angleY;
     float _distance;
-    Vector3 _cameraLookAtPoint;
     bool _init = false;
 
     void Start() {
@@ -43,8 +42,7 @@ public class CameraControl : MonoBehaviour
                 return;
             }
 
-            _cameraLookAtPoint.y = _cameraPoint.localPosition.y;
-            _distance = Vector3.Distance(_cameraLookAtPoint, _cameraPoint.position);
+            _distance = Vector3.Distance(_target.position, _cameraPoint.position);
             InputManager.I.RightStcikEvent += Rotate;
 
             _init = true;
@@ -66,25 +64,24 @@ public class CameraControl : MonoBehaviour
     }
 
     void CollisionToObject() {
-        Vector3 direction = transform.position - _cameraLookAtPoint;
+        Vector3 direction = transform.position - _target.position;
         RaycastHit hit;
-        if (Physics.Raycast(_cameraLookAtPoint, direction.normalized, out hit, _distance, ~(1 << 5)))
+        if (Physics.Raycast(_target.position, direction.normalized, out hit, _distance, ~(1 << 5)))
         {
 #if UNITY_EDITOR
             //Debug.Log(hit.collider.name);
             //Debug.Log(hit.point);
-            Debug.DrawRay(_cameraLookAtPoint, direction.normalized, Color.red, Vector3.Distance(_cameraLookAtPoint, hit.point), false);
+            Debug.DrawRay(_target.position, direction.normalized, Color.red, Vector3.Distance(_target.position, hit.point), false);
 #endif
-            float dis = Vector3.Distance(_cameraLookAtPoint, hit.point);
+            float dis = Vector3.Distance(_target.position, hit.point);
             if (Mathf.Abs(dis) < _distance)
             {
-                transform.position = _cameraLookAtPoint - transform.forward * dis;
+                transform.position = _target.position - transform.forward * dis;
                 return;
             }
         }
 
-        transform.position = _cameraLookAtPoint - transform.forward * _distance;
-
+        transform.position = _target.position - transform.forward * _distance;
     }
 
     void ResetAngle() {
