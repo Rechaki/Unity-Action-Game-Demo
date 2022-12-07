@@ -37,7 +37,7 @@ public class UnitRotate : MonoBehaviour
         }
         float diffAngle = _tagetAngle - currAngle;
         float reverseAngle = _tagetAngle > currAngle ? (_tagetAngle - 360.00f - currAngle) : (_tagetAngle + 360.00f - currAngle);
-        bool counterclockwise = Mathf.Abs(reverseAngle) > Mathf.Abs(diffAngle)  ? (diffAngle < 0) : (reverseAngle < 0);  
+        bool counterclockwise = Mathf.Abs(reverseAngle) > Mathf.Abs(diffAngle) ? (diffAngle < 0) : (reverseAngle < 0);
         float rotSpeed = Mathf.Min(rotateSpeed * timeScale * Time.deltaTime, Mathf.Abs(diffAngle), Mathf.Abs(reverseAngle));
         if (counterclockwise)
         {

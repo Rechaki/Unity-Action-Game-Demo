@@ -154,7 +154,8 @@ public class InputManager : Singleton<InputManager>
         }
 
         _leftStcikValue = keyboardInputValue;
-        _rightStcikValue = Mouse.position.ReadValue();
+        _rightStcikValue.x = Mouse.delta.x.ReadValue();
+        _rightStcikValue.y = Mouse.delta.y.ReadValue();
 
         LeftStcikEvent?.Invoke(_leftStcikValue, CurrentActionState);
         RightStcikEvent?.Invoke(_rightStcikValue, CurrentActionState);

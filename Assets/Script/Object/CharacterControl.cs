@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class CharacterControl : MonoBehaviour
 {
     [SerializeField]
     Weapon _weapon;
@@ -31,21 +31,6 @@ public class Character : MonoBehaviour
         Init();
     }
 
-    public void Init() {
-        if (!_init)
-        {
-            InputManager.I.LeftStcikEvent += MoveAndRotate;
-            InputManager.I.RightBtnWEvent += SwitchAttack;
-            InputManager.I.RightBtnSEvent += Roll;
-            InputManager.I.RightBtnNEvent += Attack;
-            //_damageColliderEvents.OnTriggerEnterEvent += OnDamageTriggerEnter;
-
-            _currentState = StateMachine.Idle;
-
-            _init = true;
-        }
-    }
-
     void Update() {
         //_timer += Time.deltaTime;
 
@@ -59,6 +44,21 @@ public class Character : MonoBehaviour
             InputManager.I.RightBtnSEvent -= Roll;
             InputManager.I.RightBtnNEvent -= Attack;
             //_damageColliderEvents.OnTriggerEnterEvent -= OnDamageTriggerEnter;
+        }
+    }
+
+    public void Init() {
+        if (!_init)
+        {
+            InputManager.I.LeftStcikEvent += MoveAndRotate;
+            InputManager.I.RightBtnWEvent += SwitchAttack;
+            InputManager.I.RightBtnSEvent += Roll;
+            InputManager.I.RightBtnNEvent += Attack;
+            //_damageColliderEvents.OnTriggerEnterEvent += OnDamageTriggerEnter;
+
+            _currentState = StateMachine.Idle;
+
+            _init = true;
         }
     }
 
