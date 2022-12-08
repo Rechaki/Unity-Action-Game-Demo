@@ -193,7 +193,8 @@ public class InputManager : Singleton<InputManager>
 
     void GamepadInput() {
         _leftStcikValue = Gamepad.leftStick.ReadValue();
-        _rightStcikValue = Gamepad.rightStick.ReadValue();
+        _rightStcikValue.x = -Gamepad.rightStick.ReadValue().x;
+        _rightStcikValue.y = -Gamepad.rightStick.ReadValue().y;
 
         LeftStcikEvent?.Invoke(_leftStcikValue, CurrentActionState);
         RightStcikEvent?.Invoke(_rightStcikValue, CurrentActionState);
