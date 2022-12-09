@@ -39,9 +39,10 @@ public class CharacterControl : MonoBehaviour
         if (InputManager.I != null)
         {
             InputManager.I.LeftStcikEvent -= MoveAndRotate;
-            InputManager.I.RightBtnWEvent -= SwitchAttack;
+            InputManager.I.RightBtnEEvent -= LightAttack;
             InputManager.I.RightBtnSEvent -= Roll;
-            InputManager.I.RightBtnNEvent -= Attack;
+            InputManager.I.RightBtnWEvent -= SwitchAttack;
+            InputManager.I.RightBtnNEvent -= HeavyAttack;
             //_damageColliderEvents.OnTriggerEnterEvent -= OnDamageTriggerEnter;
         }
     }
@@ -50,9 +51,10 @@ public class CharacterControl : MonoBehaviour
         if (!_init)
         {
             InputManager.I.LeftStcikEvent += MoveAndRotate;
-            InputManager.I.RightBtnWEvent += SwitchAttack;
+            InputManager.I.RightBtnEEvent += LightAttack;
             InputManager.I.RightBtnSEvent += Roll;
-            InputManager.I.RightBtnNEvent += Attack;
+            InputManager.I.RightBtnWEvent += SwitchAttack;
+            InputManager.I.RightBtnNEvent += HeavyAttack;
             //_damageColliderEvents.OnTriggerEnterEvent += OnDamageTriggerEnter;
 
             _currentState = StateMachine.Idle;
@@ -62,7 +64,8 @@ public class CharacterControl : MonoBehaviour
     }
 
     void MoveAndRotate(Vector2 v, InputManager.ActionState state) {
-        if (state == InputManager.ActionState.Game)
+        if (state == InputManager.ActionState.Game &&
+            _animator.CurrentAnimation.IsName(DefaultState))
         {
             //_animator.Play("Idle");
             _animator.SetFloat("Move", Mathf.Abs(v.x) + Mathf.Abs(v.y));
@@ -91,7 +94,15 @@ public class CharacterControl : MonoBehaviour
         }
     }
 
-    void Attack(InputManager.ActionState state)
+    void LightAttack(InputManager.ActionState state)
+    {
+        if (state == InputManager.ActionState.Game)
+        {
+            _animator.SetTrigger("RightBtnE");
+        }
+    }
+
+    void HeavyAttack(InputManager.ActionState state)
     {
         if (state == InputManager.ActionState.Game)
         {
