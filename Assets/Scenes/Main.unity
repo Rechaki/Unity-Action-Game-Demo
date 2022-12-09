@@ -672,12 +672,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164fb92de30a80c4d8d6dcd6b19a3e1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weapon: {fileID: 0}
-  _firePoint: {fileID: 0}
-  _damageColliderEvents: {fileID: 0}
+  _characterCamera: {fileID: 1177361858}
   _movement: {fileID: 1397354501}
   _rotate: {fileID: 1397354503}
   _animator: {fileID: 122001072}
+  _damageColliderEvents: {fileID: 0}
 --- !u!114 &1397354503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,6 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee0d147445873747b23616286c2de6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterCamera: {fileID: 1177361858}
   rotateSpeed: 10
   timeScale: 1
 --- !u!114 &1397354504

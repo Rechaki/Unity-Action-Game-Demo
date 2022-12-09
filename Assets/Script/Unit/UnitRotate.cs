@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UnitRotate : MonoBehaviour
 {
+    public Camera characterCamera;
     public float rotateSpeed;
     public float timeScale;
 
@@ -16,12 +17,23 @@ public class UnitRotate : MonoBehaviour
             return;
         }
 
-        if (v.x != 0 || v.y != 0)
+        if (v.x != 0.0f || v.y != 0.0f)
         {
-            float angle = Mathf.Atan2(v.x, v.y) * Mathf.Rad2Deg;
+
+            if (characterCamera == null)
+            {
+                Debug.LogWarning("Character Camera is NULL!");
+                return;
+            }
+
+            var dir = v.x * characterCamera.transform.right + v.y * characterCamera.transform.forward;
+            dir.Normalize();
+            float angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotateSpeed * timeScale * Time.deltaTime);
+
         }
+
     }
 
     public void Rotate() {

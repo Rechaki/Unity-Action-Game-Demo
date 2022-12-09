@@ -5,19 +5,18 @@ using UnityEngine;
 public class CharacterControl : MonoBehaviour
 {
     [SerializeField]
-    Weapon _weapon;
-    [SerializeField]
-    Transform _firePoint;
-    [SerializeField]
-    ColliderEvents _damageColliderEvents;
+    Camera _characterCamera;
     [SerializeField]
     UnitMove _movement;
     [SerializeField]
     UnitRotate _rotate;
     [SerializeField]
     UnitAnimator _animator;
+    [SerializeField]
+    ColliderEvents _damageColliderEvents;
 
     StateMachine _currentState;
+    Vector2 _direction;
     protected float _timeScale = 1.0f;
     protected List<BuffData> _buffs = new List<BuffData>();
     protected Queue<BuffData> _buffsWaitingToAdd = new Queue<BuffData>();

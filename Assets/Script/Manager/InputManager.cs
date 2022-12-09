@@ -118,34 +118,34 @@ public class InputManager : Singleton<InputManager>
         //Y
         if (Keyboard.wKey.isPressed || Keyboard.upArrowKey.isPressed)
         {
-            //inputValue.y = 1;
-            keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, 1.0f, ref _leftStcickVelocityY, keyboardInputSmoothTime);
+            keyboardInputValue.y = 1;
+            //keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, 1.0f, ref _leftStcickVelocityY, keyboardInputSmoothTime);
         }
         else if (Keyboard.sKey.isPressed || Keyboard.downArrowKey.isPressed)
         {
-            //keyboardInputValue.y = -1;
-            keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, -1.0f, ref _leftStcickVelocityY, keyboardInputSmoothTime);
+            keyboardInputValue.y = -1;
+            //keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, -1.0f, ref _leftStcickVelocityY, keyboardInputSmoothTime);
         }
         else
         {
-            //keyboardInputValue.y = 0;
-            keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, 0.0f, ref _leftStcickVelocityY, keyboardInputSmoothTime);
+            keyboardInputValue.y = 0;
+            //keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, 0.0f, ref _leftStcickVelocityY, keyboardInputSmoothTime);
         }
         //X
         if (Keyboard.aKey.isPressed || Keyboard.leftArrowKey.isPressed)
         {
-            //keyboardInputValue.x = -1;
-            keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, -1.0f, ref _leftStcickVelocityX, keyboardInputSmoothTime);
+            keyboardInputValue.x = -1;
+            //keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, -1.0f, ref _leftStcickVelocityX, keyboardInputSmoothTime);
         }
         else if (Keyboard.dKey.isPressed || Keyboard.rightArrowKey.isPressed)
         {
-            //keyboardInputValue.x = 1;
-            keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, 1.0f, ref _leftStcickVelocityX, keyboardInputSmoothTime);
+            keyboardInputValue.x = 1;
+            //keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, 1.0f, ref _leftStcickVelocityX, keyboardInputSmoothTime);
         }
         else
         {
-            //keyboardInputValue.x = 0;
-            keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, 0.0f, ref _leftStcickVelocityX, keyboardInputSmoothTime);
+            keyboardInputValue.x = 0;
+            //keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, 0.0f, ref _leftStcickVelocityX, keyboardInputSmoothTime);
         }
         
         if(Keyboard.escapeKey.isPressed)
