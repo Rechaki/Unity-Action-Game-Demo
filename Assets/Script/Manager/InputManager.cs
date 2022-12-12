@@ -8,8 +8,21 @@ using UnityEngine.InputSystem.UI;
 using UnityEngine.InputSystem.Users;
 using UnityEngine.InputSystem.Utilities;
 
-public class InputManager : Singleton<InputManager>
+public class InputManager
 {
+    static InputManager instance = null;
+    public static InputManager I
+    {
+        get
+        {
+            if (instance == null)
+            {
+                new InputManager();
+            }
+            return instance;
+        }
+    }
+
     public delegate void DevicesChanged(InputDevice device, InputDeviceChange changeType);
     public delegate void InputDataWithVector2(Vector2 value, ActionState state);
     public delegate void InputDataWithFloat(float value, ActionState state);
@@ -18,6 +31,8 @@ public class InputManager : Singleton<InputManager>
     public event DevicesChanged DevicesChangedEvent;
     public event InputDataWithVector2 LeftStcikEvent;
     public event InputDataWithVector2 RightStcikEvent;
+    public event InputDataWithFloat LeftTriggerEvent;
+    public event InputDataWithFloat RightTriggerevent;
     public event InputButtonPerformed RightBtnEEvent;
     public event InputButtonPerformed RightBtnSEvent; 
     public event InputButtonPerformed RightBtnWEvent;
@@ -48,19 +63,25 @@ public class InputManager : Singleton<InputManager>
     Vector2 keyboardInputValue = Vector2.zero;
     float _leftStcickVelocityX = 0;
     float _leftStcickVelocityY = 0;
-
-    //KeyControl[] _keyboardRightEBtns = { Keyboard.current.cKey, Keyboard.current.lKey };
-    //KeyControl[] _keyboardRightSBtns = { Keyboard.current.xKey, Keyboard.current.kKey };
-    //KeyControl[] _keyboardRightWBtns = { Keyboard.current.zKey, Keyboard.current.jKey };
-    //KeyControl[] _keyboardRightNBtns = { Keyboard.current.sKey, Keyboard.current.iKey };
+    float _leftTriggerValue = 0;
+    float _rightTriggerValue = 0;
 
     const float keyboardInputSmoothTime = 0.5f;
 
-    void Start() {
-        Init();
+    public InputManager() {
+        instance = this;
     }
 
-    void Update() {
+    public void Init() {
+        RefreshInputType();
+        CurrentActionState = ActionState.Game;
+        InputSystem.onDeviceChange += OnDevicesChanged;
+
+        GlobalMessenger.AddListener(EventMsg.SwitchToUI, () => { CurrentActionState = ActionState.UI; });
+        GlobalMessenger.AddListener(EventMsg.SwitchToGameIn, () => { CurrentActionState = ActionState.Game; });
+    }
+
+    public void Update() {
         switch (DevicesType)
         {
             case Devices.Keyboard:
@@ -76,18 +97,10 @@ public class InputManager : Singleton<InputManager>
 
     }
 
-    void OnDestroy() {
+    public void Destroy() {
 
     }
 
-    void Init() {
-        RefreshInputType();
-        CurrentActionState = ActionState.Game;
-        InputSystem.onDeviceChange += OnDevicesChanged;
-
-        GlobalMessenger.AddListener(EventMsg.SwitchToUI, () => { CurrentActionState = ActionState.UI; });
-        GlobalMessenger.AddListener(EventMsg.SwitchToGameIn, () => { CurrentActionState = ActionState.Game; });
-    }
 
     void RefreshInputType() {
         if (Mouse != null && Keyboard != null)
@@ -115,37 +128,40 @@ public class InputManager : Singleton<InputManager>
     }
 
     void KeyboardInput() {
+        #region Stcik
         //Y
         if (Keyboard.wKey.isPressed || Keyboard.upArrowKey.isPressed)
         {
-            keyboardInputValue.y = 1;
-            //keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, 1.0f, ref _leftStcickVelocityY, keyboardInputSmoothTime);
+            //keyboardInputValue.y = 1;
+            keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, 1.0f, ref _leftStcickVelocityY, keyboardInputSmoothTime);
         }
         else if (Keyboard.sKey.isPressed || Keyboard.downArrowKey.isPressed)
         {
-            keyboardInputValue.y = -1;
-            //keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, -1.0f, ref _leftStcickVelocityY, keyboardInputSmoothTime);
+            //keyboardInputValue.y = -1;
+            keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, -1.0f, ref _leftStcickVelocityY, keyboardInputSmoothTime);
         }
         else
         {
-            keyboardInputValue.y = 0;
-            //keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, 0.0f, ref _leftStcickVelocityY, keyboardInputSmoothTime);
+            //keyboardInputValue.y = 0;
+            keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, 0.0f, ref _leftStcickVelocityY, keyboardInputSmoothTime);
+            keyboardInputValue.y = keyboardInputValue.y > 0.1f ? keyboardInputValue.y : 0;
         }
         //X
         if (Keyboard.aKey.isPressed || Keyboard.leftArrowKey.isPressed)
         {
-            keyboardInputValue.x = -1;
-            //keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, -1.0f, ref _leftStcickVelocityX, keyboardInputSmoothTime);
+            //keyboardInputValue.x = -1;
+            keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, -1.0f, ref _leftStcickVelocityX, keyboardInputSmoothTime);
         }
         else if (Keyboard.dKey.isPressed || Keyboard.rightArrowKey.isPressed)
         {
-            keyboardInputValue.x = 1;
-            //keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, 1.0f, ref _leftStcickVelocityX, keyboardInputSmoothTime);
+            //keyboardInputValue.x = 1;
+            keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, 1.0f, ref _leftStcickVelocityX, keyboardInputSmoothTime);
         }
         else
         {
-            keyboardInputValue.x = 0;
-            //keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, 0.0f, ref _leftStcickVelocityX, keyboardInputSmoothTime);
+            //keyboardInputValue.x = 0;
+            keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, 0.0f, ref _leftStcickVelocityX, keyboardInputSmoothTime);
+            keyboardInputValue.x = keyboardInputValue.x > 0.1f ? keyboardInputValue.x : 0;
         }
         
         if(Keyboard.escapeKey.isPressed)
@@ -160,7 +176,9 @@ public class InputManager : Singleton<InputManager>
         LeftStcikEvent?.Invoke(_leftStcikValue, CurrentActionState);
         RightStcikEvent?.Invoke(_rightStcikValue, CurrentActionState);
 
-        if (Keyboard.eKey.isPressed && Keyboard.eKey.wasPressedThisFrame)
+        #endregion
+
+        if (Mouse.rightButton.isPressed && Mouse.rightButton.wasPressedThisFrame)
         {
             RightBtnEEvent?.Invoke(CurrentActionState);
         }
@@ -180,14 +198,14 @@ public class InputManager : Singleton<InputManager>
             RightBtnNEvent?.Invoke(CurrentActionState);
         }
 
-        //foreach (var button in _keyboardRightNBtns)
-        //{
-        //    if (button.isPressed && button.wasPressedThisFrame)
-        //    {
-        //        RightBtnNEvent?.Invoke(CurrentActionState);
-        //        break;
-        //    }
-        //}
+        if (Keyboard.leftShiftKey.isPressed)
+        {
+            RightTriggerevent?.Invoke(1.0f, CurrentActionState);
+        }
+        else
+        {
+            RightTriggerevent?.Invoke(0.0f, CurrentActionState);
+        }
 
     }
 
@@ -198,6 +216,12 @@ public class InputManager : Singleton<InputManager>
 
         LeftStcikEvent?.Invoke(_leftStcikValue, CurrentActionState);
         RightStcikEvent?.Invoke(_rightStcikValue, CurrentActionState);
+
+        _leftTriggerValue = Gamepad.leftTrigger.ReadValue();
+        _rightTriggerValue = Gamepad.rightTrigger.ReadValue();
+
+        LeftTriggerEvent?.Invoke(_leftTriggerValue, CurrentActionState);
+        RightTriggerevent?.Invoke(_rightTriggerValue, CurrentActionState);
 
         if (Gamepad.buttonEast.isPressed && Gamepad.buttonEast.wasPressedThisFrame)
         {

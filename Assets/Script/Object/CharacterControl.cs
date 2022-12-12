@@ -36,15 +36,12 @@ public class CharacterControl : MonoBehaviour
     }
 
     void OnDestroy() {
-        if (InputManager.I != null)
-        {
-            InputManager.I.LeftStcikEvent -= MoveAndRotate;
-            InputManager.I.RightBtnEEvent -= LightAttack;
-            InputManager.I.RightBtnSEvent -= Roll;
-            InputManager.I.RightBtnWEvent -= SwitchAttack;
-            InputManager.I.RightBtnNEvent -= HeavyAttack;
-            //_damageColliderEvents.OnTriggerEnterEvent -= OnDamageTriggerEnter;
-        }
+        InputManager.I.LeftStcikEvent -= MoveAndRotate;
+        InputManager.I.RightBtnEEvent -= LightAttack;
+        InputManager.I.RightBtnSEvent -= Roll;
+        InputManager.I.RightBtnWEvent -= SwitchAttack;
+        InputManager.I.RightBtnNEvent -= HeavyAttack;
+        //_damageColliderEvents.OnTriggerEnterEvent -= OnDamageTriggerEnter;
     }
 
     public void Init() {
