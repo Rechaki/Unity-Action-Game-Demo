@@ -1,0 +1,2941 @@
+fileFormatVersion: 2
+guid: f89134dadef0a8e4ba5ddab8d213c6e5
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: InputButtonIcon_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 402
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f245c697c3df394bbf3955b3fdff077
+      internalID: 1654067078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_1
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 402
+        width: 41
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eb6711267620c6488fb7b4d36b9df68
+      internalID: -57678551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_2
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 413
+        width: 52
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99c5a2312b7447a49880777f8297ec3b
+      internalID: 793365426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_3
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 413
+        width: 41
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5e32f0bc9c9a17468ea2adcd8edf2c4
+      internalID: 1642954121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_4
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 413
+        width: 52
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea55e8299ef87b944940b0d0072880d0
+      internalID: -1832621045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_5
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 402
+        width: 41
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c667e16aed1144796ca59e8814cefd
+      internalID: -1134405680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_6
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 413
+        width: 63
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01038b091d9bbd64b9cae4c064e0d32b
+      internalID: -417840552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_7
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 418
+        width: 50
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da963782ed34f47459149b0b66ae0819
+      internalID: 1747004864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_8
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 402
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e36c9074529fc5d4fba82797bee07a16
+      internalID: 590022867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_9
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 402
+        width: 41
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1bcca03c34b748479b443c34c57a45a
+      internalID: 1721543200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_10
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 413
+        width: 52
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f66bc814a19f9194e8cbd214f6a2a909
+      internalID: 1558636800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_11
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 413
+        width: 41
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81848900895ae3f42971f863dc21a474
+      internalID: 654699975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_12
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 341
+        width: 52
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22cd806a038fcc840837df46eaa8d8a7
+      internalID: 1807788084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_13
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 330
+        width: 41
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adca9d0144ebb6749ab3bea0f98a73c4
+      internalID: -625615468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_14
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 341
+        width: 63
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fa18ccd5bd42d84f874927091647284
+      internalID: 1529093414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_15
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 372
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e88fa089c4c20a44090a65b7536b1e69
+      internalID: 1440201231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_16
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 337
+        width: 56
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cb42d8b30501ad40af2b2596bc0446d
+      internalID: -1229212092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_17
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 337
+        width: 55
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a9f50a8b27312e43b0a7c71c80b4ccc
+      internalID: -546057315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_18
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 330
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57b58b59fb9e0e1478989a305045e09d
+      internalID: 100288184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_19
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 330
+        width: 41
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb2d795d08303504290b60eec9436293
+      internalID: -1664576163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_20
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 341
+        width: 52
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15982ea09373bc941b9beff29ae5ebde
+      internalID: 509816712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_21
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 341
+        width: 41
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9077433a5bab264794d10cf4ce85002
+      internalID: 472568218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_22
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 341
+        width: 52
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d7163f82c4c3ec49ad12c02f3cc8197
+      internalID: -1539314635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_23
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 330
+        width: 41
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 182f41a266c759449afc2369304fb143
+      internalID: -1860230003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_24
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 357
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fd1b29c0f8a14b489a1e93aaf9d2b50
+      internalID: 1063735146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_25
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 338
+        width: 48
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99e827d61d113cd4991fb07e9400b7f5
+      internalID: 800142000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_26
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 269
+        width: 63
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b44a6efb22cc04e4c8b648a6d62813af
+      internalID: 1155042860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_27
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 300
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62fbadb07af795745ad5b7597b1aa149
+      internalID: -434598681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_28
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 265
+        width: 56
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6742a80cfa7fa64cba585f6e95fc287
+      internalID: -583106991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_29
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 265
+        width: 55
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dda679f381fb844e8425506f477cfec
+      internalID: 766464237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_30
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 272
+        width: 53
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb3064ddff9d0074f851c76e22162b5d
+      internalID: -1558467819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_31
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 272
+        width: 53
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a5406784beb684a855d7b16c40e181
+      internalID: -919091679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_32
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 272
+        width: 53
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f611daaa0c6f1b9468f5fccbf8185511
+      internalID: 529950082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_33
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 272
+        width: 53
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d41171aec787d0349b1c96040629b138
+      internalID: 1297589608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_34
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 263
+        width: 45
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eac3308e4d187d468a9674eeef00f0f
+      internalID: -2067778439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_35
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 263
+        width: 45
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80b34bcc2e4547c4fb839707012c2f60
+      internalID: -868171767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_36
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 263
+        width: 45
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 698a1f92cdc37ce49b3a3522197b8849
+      internalID: -537199978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_37
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 263
+        width: 45
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 456a9ed878ff46245879b0480e29cbbe
+      internalID: 1992793754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_38
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 272
+        width: 53
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57425525d3df361498fb1fe739c13a99
+      internalID: -1140642494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_39
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 265
+        width: 50
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 425405318e8dfc44eae18defcdfef44c
+      internalID: 951528934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_40
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 200
+        width: 53
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f6d355d641b4464985df93d64d262ae
+      internalID: 678090321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_41
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 200
+        width: 53
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3562f29ea85d8424388ed9aa14b6a764
+      internalID: 543928851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_42
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 200
+        width: 53
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb4d694be9f0842468479d0281bcf04a
+      internalID: 292428132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_43
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 191
+        width: 45
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d350d68421f9de544bb92a6f4072b5bf
+      internalID: -580743045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_44
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 191
+        width: 45
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de4991013cf9b094ba1d577b1324aad2
+      internalID: -2067392540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_45
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 191
+        width: 45
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af395e624e74d644a8c18de6da9d94a8
+      internalID: 15448937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_46
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 191
+        width: 45
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9478ad5e758cb1d43a1009f5b363ff04
+      internalID: 2064710206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_48
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 186
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 053132a357b5de241adb8557577c67aa
+      internalID: 634487413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_50
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 207
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aff937bda0aa4fb4c8aa64b54abb5e0b
+      internalID: -2092739488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_51
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 222
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8208cf8a485a9fd439b24b19f6295c62
+      internalID: -857192788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_52
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 208
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39473ae75af21c64b9003b9918806492
+      internalID: -1425922564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_53
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 208
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c280a61a1b61944386a66414de5c489
+      internalID: -1023549809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_54
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 222
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75b243b6c41e331429d90f321062cacc
+      internalID: -1286936620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_55
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 207
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bea932c36d9034438bc03f2fa561de3
+      internalID: 845436657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_56
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 207
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3686cfc09ab50743838887e9e630daa
+      internalID: -1085175785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_57
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 223
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe208d466d3fafa46833637ece9126e8
+      internalID: -1523529753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_58
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 208
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a81e64e5094bbb4bb32c9b2c182e280
+      internalID: -114887425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_59
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 207
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77cdae25c29ae1d438b6ec1e085419be
+      internalID: -1074331752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_60
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 224
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbe5e1997958a11438ae8b3fa3d87b1d
+      internalID: -1938662005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_61
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 208
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c22bd695b1c1d64e8246e2b0a631353
+      internalID: 842894151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_62
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 208
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07d67e0d92ed4c84887203121f3fef2f
+      internalID: 656004120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_63
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 224
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b32e47bcd27eb4048a82c9344cb03de8
+      internalID: -1445593762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_64
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 207
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f10c944cc2223244182056949b90540e
+      internalID: -2130359501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_65
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 208
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b73b7c8000aef0f478f83361da700824
+      internalID: 1637211273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_66
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 223
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cec7836c7ebae0a4280c047dcd52c870
+      internalID: 1504633573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_67
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 207
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e1d2206d396e8043b3e4851c220699e
+      internalID: -1311011282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_69
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 191
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0343efdf772b214a9ebc591e5a225a7
+      internalID: -1913995584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_70
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 191
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf35e15c212adb34c9cda1852f02f075
+      internalID: -881869344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_71
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 193
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43c7f5fd7889bfc44978d8e38a3e15c1
+      internalID: 1829122975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_72
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 191
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a93aa53223a7604cadece0284c70fde
+      internalID: -565009822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_73
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 191
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db37d593e21949c4a85f5f0b93ceb151
+      internalID: -1810483596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_74
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 193
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50e03f8f694e1654c8cd668a4558cfa4
+      internalID: -224129041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_75
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 137
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c56abc788f85ca44adc70c40594c5f6
+      internalID: -1305811816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_76
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 148
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f53fe28ecd8bc94ea08192b2105393d
+      internalID: -56670881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_77
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 137
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b3cf5a69fcb53d48a6f25939887f480
+      internalID: 1873017416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_78
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 137
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8fb552cdf0026047b4103409cffc490
+      internalID: -239512546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_79
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 149
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c8ace0e146a9842941c48f2b3c3df4
+      internalID: -1426077668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_80
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 137
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc8b193d7d0b1d241a3de98aa0c3aa1b
+      internalID: 1577345884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_81
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 137
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc093893670e8334ead35c7a50249074
+      internalID: -1051518183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_82
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 149
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 921564a780ef3744d88aa8514f4357b0
+      internalID: 466685840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_83
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 137
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d380d388cf2eaf4bb3fd510c98865a7
+      internalID: 788463824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_84
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 137
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a57ea986b9701c14f8d1b0d1defccb22
+      internalID: -1674504225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_85
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 149
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc49985f3a4e5df4ba5fc07833984cec
+      internalID: -797499304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_86
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 137
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6a4f82b01f5090448bdc71afe1802d3
+      internalID: 347100900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_87
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 137
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa9177f225123004e981e138353c0902
+      internalID: 1470885253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_88
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 149
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 205af52895b738640b2c26e0bfb89058
+      internalID: 1402852624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_89
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 137
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 689db06e97658b44c9e71a24e50187f1
+      internalID: -808073803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_90
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 137
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c248c11d256c774890a42d73c17de83
+      internalID: -1502972986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_91
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 149
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2736c7bab2717d8419a763f9e9e1357e
+      internalID: -121204526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_92
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 137
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 562bddbb74a03704b8ee000c770884dc
+      internalID: -1694421226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_93
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 137
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b24143f30b139d34c92c6811db4d8a93
+      internalID: -932161922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_94
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 148
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 668989fc41044f444b73edce7e9ddee2
+      internalID: -1481476759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_95
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 137
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a662705615c6304f8db2a21a2c124c2
+      internalID: -347577698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_96
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 137
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced4e8c28eedb5c4989e84cb901b39a4
+      internalID: -1966095968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_97
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 149
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c4c6875d505a84ca6396b1c671a1c7
+      internalID: 670183866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_98
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 137
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76b5167b13441464eaf1baa0b1933573
+      internalID: -174060377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_99
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 137
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76cb54a3bbe357a4189a88eeef4378a9
+      internalID: 690525427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_100
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 149
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88f8285c644198e4e933f304881549f7
+      internalID: -709798624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_101
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 137
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b77448f8f935072499b1360a059a8216
+      internalID: -85079755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_102
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 137
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59a62d2d07a3bff4e8c75dbbf37bab11
+      internalID: -751597000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_103
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 149
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed8febf3d0d107c4eb574dc113aa56e6
+      internalID: 779089804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_104
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 137
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4c604cab77e8b448825e12a9a4980b1
+      internalID: 1731153540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_105
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 137
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35840c260ef37c24da1432a0abfc9a53
+      internalID: 1004786484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_106
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 149
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f89134ebdd327d2448f6da6c31f953e1
+      internalID: -724051959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_107
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 137
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7303849ffa9dc4b4aacf7a99c38d9c9a
+      internalID: 1014269210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_108
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 121
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d5073cd57835764ab82ba06864670d4
+      internalID: 1494950431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_109
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 116
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8da61fc1f65d5446aa26adbb613c289
+      internalID: 1485388530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_110
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 121
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92da7f0d7a41fdd4d8c17b2fc708bc26
+      internalID: -1001788505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_111
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 121
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45e0883ec1f3ad049a288ddd0c0e5b67
+      internalID: -812854819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_112
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 121
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f92d42240bd5a5649b8f57684d779d10
+      internalID: 1024090930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_113
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 121
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 225599ab74c3d7b4e8d6b95692300aff
+      internalID: 886427202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_114
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 121
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 993e4599e3e251345b474186495ef4cc
+      internalID: 1523746326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_115
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 121
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 063c094d5fd6ee646847f62f3f5ee374
+      internalID: 1461354584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_116
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 121
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92d5dbf06aa9ebb44baae9a61a23a701
+      internalID: 683651430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_117
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 121
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19a574e2d5c34294c925f4e41c05e21e
+      internalID: -2026237523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_118
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 121
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 010253c1a7aa3ff4db109b593175334c
+      internalID: 143079168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_119
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 121
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6036634b684876f4fb84aa89ef80e530
+      internalID: -2130854699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_120
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 121
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8425edac4e04a9d4dadf2cd95bad3092
+      internalID: -1183100792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_121
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 121
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7948dfd8a3499164da4d0622162349ef
+      internalID: 1212100177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_122
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 49
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 249ac142f1abc064cb006ca70acb17ba
+      internalID: 997769657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_123
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 49
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dfd8ba6d72648c43a551d5fcc543a52
+      internalID: 1113870146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_124
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 49
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a58989282cd122541a28f4e160315bf8
+      internalID: 1354285435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_125
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 57
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be9491858fccf0489a794b64eb48d25
+      internalID: 1721451496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_126
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 57
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e9b2c3e1316e79418ca4aa6ab47edf9
+      internalID: 372473383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_127
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 57
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea256a612d91c64a942e907698b1073
+      internalID: -1121977709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_128
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 70
+        width: 32
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3715349913c6e754b9baa35f3104f4cf
+      internalID: -669888862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_129
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 58
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88bae52186feb854d88ff6738dc73df9
+      internalID: -528902927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InputButtonIcon_130
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 62
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53acaafb1cba3cb4bad51d79d97e375a
+      internalID: 1760806338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      InputButtonIcon_94: -1481476759
+      InputButtonIcon_89: -808073803
+      InputButtonIcon_85: -797499304
+      InputButtonIcon_20: 509816712
+      InputButtonIcon_40: 678090321
+      InputButtonIcon_16: -1229212092
+      InputButtonIcon_38: -1140642494
+      InputButtonIcon_0: 1654067078
+      InputButtonIcon_63: -1445593762
+      InputButtonIcon_119: -2130854699
+      InputButtonIcon_96: -1966095968
+      InputButtonIcon_72: -565009822
+      InputButtonIcon_74: -224129041
+      InputButtonIcon_68: 419371065
+      InputButtonIcon_130: 1760806338
+      InputButtonIcon_58: -114887425
+      InputButtonIcon_9: 1721543200
+      InputButtonIcon_97: 670183866
+      InputButtonIcon_50: -2092739488
+      InputButtonIcon_113: 886427202
+      InputButtonIcon_121: 1212100177
+      InputButtonIcon_13: -625615468
+      InputButtonIcon_88: 1402852624
+      InputButtonIcon_49: -1849341176
+      InputButtonIcon_34: -2067778439
+      InputButtonIcon_59: -1074331752
+      InputButtonIcon_30: -1558467819
+      InputButtonIcon_106: -724051959
+      InputButtonIcon_41: 543928851
+      InputButtonIcon_102: -751597000
+      InputButtonIcon_23: -1860230003
+      InputButtonIcon_51: -857192788
+      InputButtonIcon_100: -709798624
+      InputButtonIcon_82: 466685840
+      InputButtonIcon_111: -812854819
+      InputButtonIcon_71: 1829122975
+      InputButtonIcon_27: -434598681
+      InputButtonIcon_57: -1523529753
+      InputButtonIcon_1: -57678551
+      InputButtonIcon_18: 100288184
+      InputButtonIcon_12: 1807788084
+      InputButtonIcon_33: 1297589608
+      InputButtonIcon_60: -1938662005
+      InputButtonIcon_48: 634487413
+      InputButtonIcon_56: -1085175785
+      InputButtonIcon_91: -121204526
+      InputButtonIcon_80: 1577345884
+      InputButtonIcon_124: 1354285435
+      InputButtonIcon_105: 1004786484
+      InputButtonIcon_31: -919091679
+      InputButtonIcon_2: 793365426
+      InputButtonIcon_3: 1642954121
+      InputButtonIcon_61: 842894151
+      InputButtonIcon_123: 1113870146
+      InputButtonIcon_129: -528902927
+      InputButtonIcon_108: 1494950431
+      InputButtonIcon_78: -239512546
+      InputButtonIcon_17: -546057315
+      InputButtonIcon_70: -881869344
+      InputButtonIcon_112: 1024090930
+      InputButtonIcon_87: 1470885253
+      InputButtonIcon_8: 590022867
+      InputButtonIcon_39: 951528934
+      InputButtonIcon_53: -1023549809
+      InputButtonIcon_22: -1539314635
+      InputButtonIcon_73: -1810483596
+      InputButtonIcon_45: 15448937
+      InputButtonIcon_114: 1523746326
+      InputButtonIcon_15: 1440201231
+      InputButtonIcon_76: -56670881
+      InputButtonIcon_98: -174060377
+      InputButtonIcon_107: 1014269210
+      InputButtonIcon_104: 1731153540
+      InputButtonIcon_55: 845436657
+      InputButtonIcon_110: -1001788505
+      InputButtonIcon_79: -1426077668
+      InputButtonIcon_37: 1992793754
+      InputButtonIcon_26: 1155042860
+      InputButtonIcon_10: 1558636800
+      InputButtonIcon_29: 766464237
+      InputButtonIcon_65: 1637211273
+      InputButtonIcon_21: 472568218
+      InputButtonIcon_42: 292428132
+      InputButtonIcon_118: 143079168
+      InputButtonIcon_69: -1913995584
+      InputButtonIcon_35: -868171767
+      InputButtonIcon_66: 1504633573
+      InputButtonIcon_128: -669888862
+      InputButtonIcon_43: -580743045
+      InputButtonIcon_120: -1183100792
+      InputButtonIcon_67: -1311011282
+      InputButtonIcon_99: 690525427
+      InputButtonIcon_86: 347100900
+      InputButtonIcon_14: 1529093414
+      InputButtonIcon_25: 800142000
+      InputButtonIcon_28: -583106991
+      InputButtonIcon_32: 529950082
+      InputButtonIcon_19: -1664576163
+      InputButtonIcon_93: -932161922
+      InputButtonIcon_64: -2130359501
+      InputButtonIcon_117: -2026237523
+      InputButtonIcon_62: 656004120
+      InputButtonIcon_11: 654699975
+      InputButtonIcon_77: 1873017416
+      InputButtonIcon_6: -417840552
+      InputButtonIcon_81: -1051518183
+      InputButtonIcon_115: 1461354584
+      InputButtonIcon_46: 2064710206
+      InputButtonIcon_101: -85079755
+      InputButtonIcon_5: -1134405680
+      InputButtonIcon_4: -1832621045
+      InputButtonIcon_103: 779089804
+      InputButtonIcon_52: -1425922564
+      InputButtonIcon_75: -1305811816
+      InputButtonIcon_7: 1747004864
+      InputButtonIcon_125: 1721451496
+      InputButtonIcon_122: 997769657
+      InputButtonIcon_95: -347577698
+      InputButtonIcon_90: -1502972986
+      InputButtonIcon_54: -1286936620
+      InputButtonIcon_92: -1694421226
+      InputButtonIcon_24: 1063735146
+      InputButtonIcon_47: 1117021317
+      InputButtonIcon_126: 372473383
+      InputButtonIcon_36: -537199978
+      InputButtonIcon_44: -2067392540
+      InputButtonIcon_83: 788463824
+      InputButtonIcon_84: -1674504225
+      InputButtonIcon_127: -1121977709
+      InputButtonIcon_109: 1485388530
+      InputButtonIcon_116: 683651430
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
