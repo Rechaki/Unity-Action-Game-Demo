@@ -32,7 +32,9 @@ public class InputManager
     public event InputDataWithVector2 LeftStcikEvent;
     public event InputDataWithVector2 RightStcikEvent;
     public event InputDataWithFloat LeftTriggerEvent;
-    public event InputDataWithFloat RightTriggerevent;
+    public event InputDataWithFloat RightTriggerEvent;
+    public event InputButtonPerformed leftShoulderEvent;
+    public event InputButtonPerformed rightShoulderEvent;
     public event InputButtonPerformed RightBtnEEvent;
     public event InputButtonPerformed RightBtnSEvent; 
     public event InputButtonPerformed RightBtnWEvent;
@@ -66,7 +68,7 @@ public class InputManager
     float _leftTriggerValue = 0;
     float _rightTriggerValue = 0;
 
-    const float keyboardInputSmoothTime = 0.5f;
+    const float KeyboardInputSmoothTime = 0.5f;
 
     public InputManager() {
         instance = this;
@@ -133,34 +135,34 @@ public class InputManager
         if (Keyboard.wKey.isPressed || Keyboard.upArrowKey.isPressed)
         {
             //keyboardInputValue.y = 1;
-            keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, 1.0f, ref _leftStcickVelocityY, keyboardInputSmoothTime);
+            keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, 1.0f, ref _leftStcickVelocityY, KeyboardInputSmoothTime);
         }
         else if (Keyboard.sKey.isPressed || Keyboard.downArrowKey.isPressed)
         {
             //keyboardInputValue.y = -1;
-            keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, -1.0f, ref _leftStcickVelocityY, keyboardInputSmoothTime);
+            keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, -1.0f, ref _leftStcickVelocityY, KeyboardInputSmoothTime);
         }
         else
         {
             //keyboardInputValue.y = 0;
-            keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, 0.0f, ref _leftStcickVelocityY, keyboardInputSmoothTime);
+            keyboardInputValue.y = Mathf.SmoothDamp(keyboardInputValue.y, 0.0f, ref _leftStcickVelocityY, KeyboardInputSmoothTime);
             keyboardInputValue.y = keyboardInputValue.y > 0.1f ? keyboardInputValue.y : 0;
         }
         //X
         if (Keyboard.aKey.isPressed || Keyboard.leftArrowKey.isPressed)
         {
             //keyboardInputValue.x = -1;
-            keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, -1.0f, ref _leftStcickVelocityX, keyboardInputSmoothTime);
+            keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, -1.0f, ref _leftStcickVelocityX, KeyboardInputSmoothTime);
         }
         else if (Keyboard.dKey.isPressed || Keyboard.rightArrowKey.isPressed)
         {
             //keyboardInputValue.x = 1;
-            keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, 1.0f, ref _leftStcickVelocityX, keyboardInputSmoothTime);
+            keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, 1.0f, ref _leftStcickVelocityX, KeyboardInputSmoothTime);
         }
         else
         {
             //keyboardInputValue.x = 0;
-            keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, 0.0f, ref _leftStcickVelocityX, keyboardInputSmoothTime);
+            keyboardInputValue.x = Mathf.SmoothDamp(keyboardInputValue.x, 0.0f, ref _leftStcickVelocityX, KeyboardInputSmoothTime);
             keyboardInputValue.x = keyboardInputValue.x > 0.1f ? keyboardInputValue.x : 0;
         }
         
@@ -176,6 +178,28 @@ public class InputManager
         LeftStcikEvent?.Invoke(_leftStcikValue, CurrentActionState);
         RightStcikEvent?.Invoke(_rightStcikValue, CurrentActionState);
 
+        #endregion
+
+        #region Trigger
+        if (Keyboard.leftShiftKey.isPressed)
+        {
+            RightTriggerEvent?.Invoke(1.0f, CurrentActionState);
+        }
+        else
+        {
+            RightTriggerEvent?.Invoke(0.0f, CurrentActionState);
+        }
+        #endregion
+
+        #region Shoulder
+        if (Keyboard.vKey.isPressed && Keyboard.vKey.wasPressedThisFrame)
+        {
+            leftShoulderEvent?.Invoke(CurrentActionState);
+        }
+        if (Keyboard.bKey.isPressed && Keyboard.bKey.wasPressedThisFrame)
+        {
+            rightShoulderEvent?.Invoke(CurrentActionState);
+        }
         #endregion
 
         if (Mouse.rightButton.isPressed && Mouse.rightButton.wasPressedThisFrame)
@@ -198,31 +222,37 @@ public class InputManager
             RightBtnNEvent?.Invoke(CurrentActionState);
         }
 
-        if (Keyboard.leftShiftKey.isPressed)
-        {
-            RightTriggerevent?.Invoke(1.0f, CurrentActionState);
-        }
-        else
-        {
-            RightTriggerevent?.Invoke(0.0f, CurrentActionState);
-        }
-
     }
 
     void GamepadInput() {
+        #region Stcik
         _leftStcikValue = Gamepad.leftStick.ReadValue();
         _rightStcikValue.x = -Gamepad.rightStick.ReadValue().x;
         _rightStcikValue.y = -Gamepad.rightStick.ReadValue().y;
 
         LeftStcikEvent?.Invoke(_leftStcikValue, CurrentActionState);
         RightStcikEvent?.Invoke(_rightStcikValue, CurrentActionState);
+        #endregion
 
+        #region Trigger
         _leftTriggerValue = Gamepad.leftTrigger.ReadValue();
         _rightTriggerValue = Gamepad.rightTrigger.ReadValue();
 
         LeftTriggerEvent?.Invoke(_leftTriggerValue, CurrentActionState);
-        RightTriggerevent?.Invoke(_rightTriggerValue, CurrentActionState);
+        RightTriggerEvent?.Invoke(_rightTriggerValue, CurrentActionState);
+        #endregion
 
+        #region Shoulder
+        if (Gamepad.leftShoulder.isPressed && Gamepad.leftShoulder.wasPressedThisFrame)
+        {
+            leftShoulderEvent?.Invoke(CurrentActionState);
+        }
+        if (Gamepad.rightShoulder.isPressed && Gamepad.leftShoulder.wasPressedThisFrame)
+        {
+            rightShoulderEvent?.Invoke(CurrentActionState);
+        }
+        #endregion
+        
         if (Gamepad.buttonEast.isPressed && Gamepad.buttonEast.wasPressedThisFrame)
         {
             RightBtnEEvent?.Invoke(CurrentActionState);

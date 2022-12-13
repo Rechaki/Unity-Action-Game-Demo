@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 476192730}
   - component: {fileID: 476192729}
   - component: {fileID: 476192728}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -787,7 +787,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 279
+    m_Bits: 791
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -826,12 +826,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b123cc2f38f9678429653a87c2f3a872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _camera: {fileID: 1177361858}
   _target: {fileID: 1113160393}
   _cameraPoint: {fileID: 1868517121}
   _rotateSpeed: 0.5
   _lockonSpeed: 10
   _minAngleX: -30
   _maxAngleX: 30
+  _lockonDistance: 10
 --- !u!1 &1251807872
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,7 +943,7 @@ GameObject:
   - component: {fileID: 1292168560}
   - component: {fileID: 1292168559}
   - component: {fileID: 1292168558}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1746,7 +1748,7 @@ GameObject:
   - component: {fileID: 1551147017}
   - component: {fileID: 1551147016}
   - component: {fileID: 1551147015}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
