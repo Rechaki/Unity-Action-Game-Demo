@@ -16,12 +16,11 @@ public class CharacterControl : MonoBehaviour
     ColliderEvents _damageColliderEvents;
 
     StateMachine _currentState;
-    Vector2 _direction;
     protected float _timeScale = 1.0f;
     protected List<BuffData> _buffs = new List<BuffData>();
     protected Queue<BuffData> _buffsWaitingToAdd = new Queue<BuffData>();
     protected List<float> _buffTimer = new List<float>();
-    float _timer = 0.0f;
+    bool _isLockon = false;
     bool _init = false;
 
     const string DefaultState = "Idle";
@@ -31,12 +30,12 @@ public class CharacterControl : MonoBehaviour
     }
 
     void Update() {
-        //_timer += Time.deltaTime;
 
     }
 
     void OnDestroy() {
         InputManager.I.LeftStcikEvent -= MoveAndRotate;
+        InputManager.I.RightTriggerEvent -= SwitchLockonTarget;
         InputManager.I.RightBtnEEvent -= LightAttack;
         InputManager.I.RightBtnSEvent -= Roll;
         InputManager.I.RightBtnWEvent -= SwitchAttack;
@@ -48,6 +47,7 @@ public class CharacterControl : MonoBehaviour
         if (!_init)
         {
             InputManager.I.LeftStcikEvent += MoveAndRotate;
+            InputManager.I.RightTriggerEvent += SwitchLockonTarget;
             InputManager.I.RightBtnEEvent += LightAttack;
             InputManager.I.RightBtnSEvent += Roll;
             InputManager.I.RightBtnWEvent += SwitchAttack;
@@ -66,7 +66,16 @@ public class CharacterControl : MonoBehaviour
         {
             //_animator.Play("Idle");
             _animator.SetFloat("Move", Mathf.Abs(v.x) + Mathf.Abs(v.y));
-            _rotate.Rotate(v);
+            _animator.SetFloat("X", v.x);
+            _animator.SetFloat("Y", v.y);
+            if (_isLockon == false)
+            {
+                _rotate.Rotate(v);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, _characterCamera.transform.eulerAngles.y, 0);
+            }
         }
     }
 
@@ -74,6 +83,16 @@ public class CharacterControl : MonoBehaviour
     {
         _animator.SetFloat("X", v.x);
         _animator.SetFloat("Y", v.y);
+    }
+
+    void SwitchLockonTarget(float value, InputManager.ActionState state)
+    {
+        if (state == InputManager.ActionState.Game)
+        {
+            _animator.SetFloat("RightTriggerValue", value);
+            _isLockon = value > 0.5 ? true : false;
+        }
+
     }
 
     void Roll(InputManager.ActionState state) {

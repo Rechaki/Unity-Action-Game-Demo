@@ -23,6 +23,8 @@ public class CameraControl : MonoBehaviour
     float _lockonDistance = 10.0f;
     [SerializeField]
     float _zoomIn = 40;
+    [SerializeField]
+    float _lockonOffsetX = 1.0f;
 
     float _angleX;
     float _angleY;
@@ -122,6 +124,7 @@ public class CameraControl : MonoBehaviour
 
         if (_isLockon)
         {
+            //Debug.Log(transform.forward);
             List<Transform> newTargetables = new List<Transform>();
             Collider[] colliders = Physics.OverlapSphere(_target.position, _lockonDistance, LockonLayers);
             foreach (var collider in colliders)
@@ -160,28 +163,35 @@ public class CameraControl : MonoBehaviour
 
             if (_lockonTargets.Count > 0)
             {
-                Vector3 _targetToLockonTarget = _lockonTargets[_lockonIndex].position - _target.position;
-                var to = Quaternion.LookRotation(_targetToLockonTarget, Vector3.up);
+                Vector3 targetToLockonTarget = _lockonTargets[_lockonIndex].position - _target.position;
+                var to = Quaternion.LookRotation(targetToLockonTarget, Vector3.up);
                 transform.rotation = Quaternion.Lerp(transform.rotation, to, Time.deltaTime * _lockonSpeed);
-                transform.position = _target.position - transform.forward * _distance;
                 _camera.fieldOfView = Mathf.Lerp(_camera.fieldOfView, _zoomIn, Time.deltaTime * _lockonSpeed);
-            }
-            //Vector3 _camToTarget = _lockonTarget.position - transform.position;
-            //Vector3 _planarCamToTarget = Vector3.ProjectOnPlane(_camToTarget, Vector3.up);
-            //Quaternion _lookRotation = Quaternion.LookRotation(_camToTarget, Vector3.up);
-            //float dis = Vector3.Distance(_lockonTarget.position, _cameraPoint.position);
-            //var textRect = pointTexts[index].GetComponent<RectTransform>();
-            //if (RectTransformUtility.ScreenPointToLocalPointInRectangle(textRect, screenPos, uiCamera, out uipos))
-            //{
-            //    textRect.anchoredPosition = uipos + m_offsetY;
-            //}
 
-            //transform.rotation = Quaternion.Lerp(transform.rotation, newRo, Time.deltaTime * _lockonSpeed);
-            //transform.position = Vector3.Lerp(transform.position, _camToTarget * dis, Time.deltaTime);
+                var screenPos = _camera.WorldToScreenPoint(_lockonTargets[_lockonIndex].position);
+                screenPos.z = 0;
+                GlobalMessenger<Vector2>.Launch(EventMsg.LockOnEnter, screenPos);
+            }
+
+            //if (transform.forward.z >= 0)
+            //{
+            //    transform.position = _target.position - transform.forward * _distance + Vector3.right * _lockonOffsetX;
+            //}
+            //else
+            //{
+            //    transform.position = _target.position - transform.forward * _distance + Vector3.left * _lockonOffsetX;
+            //}
+            transform.position = _target.position - transform.forward * _distance;
+
         }
         else
         {
+            if (_lockonTargets.Count > 0)
+            {
+                _lockonTargets.Clear();
+            }
             _camera.fieldOfView = Mathf.Lerp(_camera.fieldOfView, _defaultZoom, Time.deltaTime * _lockonSpeed);
+            GlobalMessenger.Launch(EventMsg.LockOnExit);
         }
 
     }

@@ -2,6 +2,8 @@
 {
     SwitchToUI,                 //入力をUIに変換
     SwitchToGameIn,             //入力をゲームに変換
+    LockOnEnter,
+    LockOnExit,
     KilledTheEnemy,             //敵を倒れた
     BossComing,                 //Bossが来る
     BossBattleStart,            //Boss戦闘がスタート
