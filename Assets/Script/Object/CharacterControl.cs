@@ -12,10 +12,12 @@ public class CharacterControl : MonoBehaviour
     UnitRotate _rotate;
     [SerializeField]
     UnitAnimator _animator;
+    [SerializeReference]
+    Weapon _weapon;
     [SerializeField]
     ColliderEvents _damageColliderEvents;
 
-    StateMachine _currentState;
+    //StateMachine _currentState;
     protected float _timeScale = 1.0f;
     protected List<BuffData> _buffs = new List<BuffData>();
     protected Queue<BuffData> _buffsWaitingToAdd = new Queue<BuffData>();
@@ -40,6 +42,9 @@ public class CharacterControl : MonoBehaviour
         InputManager.I.RightBtnSEvent -= Roll;
         InputManager.I.RightBtnWEvent -= SwitchAttack;
         InputManager.I.RightBtnNEvent -= HeavyAttack;
+
+        _animator.AnimatorStateEvent.OnEnter -= DrawWeapon;
+
         //_damageColliderEvents.OnTriggerEnterEvent -= OnDamageTriggerEnter;
     }
 
@@ -52,27 +57,28 @@ public class CharacterControl : MonoBehaviour
             InputManager.I.RightBtnSEvent += Roll;
             InputManager.I.RightBtnWEvent += SwitchAttack;
             InputManager.I.RightBtnNEvent += HeavyAttack;
-            //_damageColliderEvents.OnTriggerEnterEvent += OnDamageTriggerEnter;
 
-            _currentState = StateMachine.Idle;
+            _animator.AnimatorStateEvent.OnEnter += DrawWeapon;
+
+            //_damageColliderEvents.OnTriggerEnterEvent += OnDamageTriggerEnter;
 
             _init = true;
         }
     }
 
     void MoveAndRotate(Vector2 v, InputManager.ActionState state) {
-        if (state == InputManager.ActionState.Game &&
-            _animator.CurrentAnimation.IsName(DefaultState))
+        if (state == InputManager.ActionState.Game)
         {
             //_animator.Play("Idle");
             _animator.SetFloat("Move", Mathf.Abs(v.x) + Mathf.Abs(v.y));
             _animator.SetFloat("X", v.x);
             _animator.SetFloat("Y", v.y);
-            if (_isLockon == false)
+
+            if (_isLockon == false && _animator.CurrentAnimation.IsName(DefaultState))
             {
                 _rotate.Rotate(v);
             }
-            else
+            else if(_isLockon)
             {
                 transform.rotation = Quaternion.Euler(0, _characterCamera.transform.eulerAngles.y, 0);
             }
@@ -123,6 +129,17 @@ public class CharacterControl : MonoBehaviour
         if (state == InputManager.ActionState.Game)
         {
             _animator.SetTrigger("RightBtnN");
+        }
+    }
+
+    void DrawWeapon(AnimatorStateInfo stateInfo, int layerIndex) {
+        if (stateInfo.IsName("Draw Sword 2"))
+        {
+            _weapon.DrawWeapon();
+        }
+        else if (stateInfo.IsName("Sheath Sword 2"))
+        {
+            _weapon.SheathWeapon();
         }
     }
 

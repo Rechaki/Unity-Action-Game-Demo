@@ -23,10 +23,10 @@ public enum StateMachine
 {
     Create,
     Idle,
-    Move,
-    FollowPlayer,
-    RotateToPlayer,
     Attack,
+    Roll,
+    LockOn,
+    Hit,
     Dead,
 }
 

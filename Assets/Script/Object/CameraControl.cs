@@ -36,7 +36,7 @@ public class CameraControl : MonoBehaviour
 
     List<Transform> _lockonTargets = new List<Transform>();
 
-    const int CollisionLayers = ~(1 << 5 | 1 << 9);
+    const int CollisionLayers = ~(1 << 5 | 1 << 9 | 1 << 10);
     const int LockonLayers = 1 << 9;
 
     void Start() {

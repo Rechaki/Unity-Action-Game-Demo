@@ -8,17 +8,30 @@ public class UnitAnimator : MonoBehaviour
     public float timeScale = 1.0f;
 
     public AnimatorStateInfo CurrentAnimation => _currentAnimation;
+    public AnimatorStateEvents AnimatorStateEvent => _animatorEvent;
 
     [SerializeField]
     Animator _animator;
 
+    AnimatorStateEvents _animatorEvent;
     AnimatorStateInfo _currentAnimation;
-    
-    void Update() {
-        _currentAnimation = _animator.GetCurrentAnimatorStateInfo(0);
+
+    void Start() {
+        if (_animator == null)
+        {
+            Debug.LogError("Animator is NULL!");
+            return;
+        }
+
+        _animatorEvent = _animator.GetBehaviour<AnimatorStateEvents>();
+        _animatorEvent.OnEnter += OnStateEnter; 
     }
 
-    private void OnAnimatorMove()
+    void Update() {
+        //_currentAnimation = _animator.GetCurrentAnimatorStateInfo(0);
+    }
+
+    void OnAnimatorMove()
     {
         if (parent == null)
         {
@@ -69,5 +82,9 @@ public class UnitAnimator : MonoBehaviour
 
     public void SetTrigger(string name) {
         _animator.SetTrigger(name);
+    }
+
+    void OnStateEnter(AnimatorStateInfo stateInfo, int layerIndex) {
+        _currentAnimation = stateInfo;
     }
 }
