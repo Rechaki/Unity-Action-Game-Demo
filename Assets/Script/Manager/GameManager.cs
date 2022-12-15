@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
 		inputMgr = new InputManager();
 		inputMgr.Init();
-		//https://www.twblogs.net/a/5b83b2d02b71777a2efcf61d
+		//
 		//DataManager.I.Init();
 		isGameOver = false;
 		_inited = true;
