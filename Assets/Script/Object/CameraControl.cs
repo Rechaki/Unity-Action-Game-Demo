@@ -168,7 +168,7 @@ public class CameraControl : MonoBehaviour
 
             if (_lockonTargets.Count > 0)
             {
-                Vector3 targetToLockonTarget = _lockonTargets[_lockonIndex].position - _target.position - Vector3.up;
+                Vector3 targetToLockonTarget = _lockonTargets[_lockonIndex].position - _target.position - Vector3.right;
                 var to = Quaternion.LookRotation(targetToLockonTarget, Vector3.up);
                 transform.rotation = Quaternion.Lerp(transform.rotation, to, Time.deltaTime * _lockonSpeed);
                 _camera.fieldOfView = Mathf.Lerp(_camera.fieldOfView, _zoomIn, Time.deltaTime * _lockonSpeed);

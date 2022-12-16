@@ -10,6 +10,7 @@ public class MainPanel : MonoBehaviour
     [SerializeField]
     RectTransform _lockonArrow;
 
+    Vector2 pos = Vector2.zero;
     Vector2 _lockonTargetPos;
     bool _isLockon = false;
 
@@ -21,7 +22,7 @@ public class MainPanel : MonoBehaviour
 
     void Update()
     {
-
+        UpdateLockonArrowPosition();
     }
 
     void OnDestroy()
@@ -46,20 +47,17 @@ public class MainPanel : MonoBehaviour
         if (_lockonArrow.gameObject.activeSelf)
         {
             _lockonArrow.gameObject.SetActive(false);
+            _isLockon = false;
         }
-        _isLockon = false;
     }
 
     void UpdateLockonArrowPosition()
     {
         if (_lockonArrow.gameObject.activeSelf)
         {
-            Vector2 pos = Vector2.zero;
-            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_lockonArrow, Vector2.zero, uiCamera, out pos))
-            {
-                _lockonArrow.localPosition = pos;
-                Debug.Log(pos);
-            }
+            _lockonTargetPos.x -= Screen.width / 2;
+            _lockonTargetPos.y -= Screen.height / 2;
+            _lockonArrow.localPosition = _lockonTargetPos;
         }
     }
 }
