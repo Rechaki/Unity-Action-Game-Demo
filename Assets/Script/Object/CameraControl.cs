@@ -129,13 +129,18 @@ public class CameraControl : MonoBehaviour
             Collider[] colliders = Physics.OverlapSphere(_target.position, _lockonDistance, LockonLayers);
             foreach (var collider in colliders)
             {
-                if (InScreen(collider.transform.position))
+                var character = collider.GetComponent<ICharacter>();
+                if (character != null)
                 {
-                    if (IsBlocked(collider.transform.position) == false)
+                    if (InScreen(character.lookatTarget.position))
                     {
-                        newTargetables.Add(collider.transform);
+                        if (IsBlocked(character.lookatTarget.position) == false)
+                        {
+                            newTargetables.Add(character.lookatTarget);
+                        }
                     }
                 }
+
             }
 
             if (_lockonTargets.Count == 0)
@@ -163,7 +168,7 @@ public class CameraControl : MonoBehaviour
 
             if (_lockonTargets.Count > 0)
             {
-                Vector3 targetToLockonTarget = _lockonTargets[_lockonIndex].position - _target.position;
+                Vector3 targetToLockonTarget = _lockonTargets[_lockonIndex].position - _target.position - Vector3.up;
                 var to = Quaternion.LookRotation(targetToLockonTarget, Vector3.up);
                 transform.rotation = Quaternion.Lerp(transform.rotation, to, Time.deltaTime * _lockonSpeed);
                 _camera.fieldOfView = Mathf.Lerp(_camera.fieldOfView, _zoomIn, Time.deltaTime * _lockonSpeed);
@@ -223,6 +228,10 @@ public class CameraControl : MonoBehaviour
         Debug.DrawRay(_target.position, direction.normalized, Color.yellow, distance, false);
 #endif
         bool isBlocked = Physics.SphereCast(_target.position, radius, direction.normalized, out RaycastHit hit, distance, CollisionLayers);
+        if (isBlocked)
+        {
+            Debug.Log(hit.transform.name);
+        }
 
         return isBlocked;
     }
