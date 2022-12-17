@@ -78,10 +78,7 @@ public class CharacterControl : MonoBehaviour
             {
                 _rotate.Rotate(v);
             }
-            else if(_isLockon)
-            {
-                transform.rotation = Quaternion.Euler(0, _characterCamera.transform.eulerAngles.y, 0);
-            }
+
         }
     }
 

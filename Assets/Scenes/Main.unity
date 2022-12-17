@@ -2489,15 +2489,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1177361858}
-  _target: {fileID: 1113160393}
+  _target: {fileID: 1397354499}
   _cameraPoint: {fileID: 1868517121}
+  _targetHeight: 1.5
   _rotateSpeed: 1
   _lockonSpeed: 10
   _minAngleX: -30
   _maxAngleX: 30
   _lockonDistance: 10
   _zoomIn: 40
-  _lockonOffsetX: 1
+  _lockonOffset: {x: 1, y: 0, z: 0}
 --- !u!1 &1205988105
 GameObject:
   m_ObjectHideFlags: 0

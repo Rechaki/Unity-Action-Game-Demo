@@ -12,6 +12,8 @@ public class CameraControl : MonoBehaviour
     [SerializeField]
     Transform _cameraPoint;
     [SerializeField]
+    float _targetHeight = 1.5f;
+    [SerializeField]
     float _rotateSpeed = 0.1f;
     [SerializeField]
     float _lockonSpeed = 10.0f;
@@ -24,7 +26,7 @@ public class CameraControl : MonoBehaviour
     [SerializeField]
     float _zoomIn = 40;
     [SerializeField]
-    float _lockonOffsetX = 1.0f;
+    Vector3 _lockonOffset = Vector3.right;
 
     float _angleX;
     float _angleY;
@@ -33,6 +35,7 @@ public class CameraControl : MonoBehaviour
     int _lockonIndex;
     bool _init = false;
     bool _isLockon = false;
+    Vector3 _targetPosition;
 
     List<Transform> _lockonTargets = new List<Transform>();
 
@@ -44,8 +47,8 @@ public class CameraControl : MonoBehaviour
     }
 
     void Update() {
-
-
+        _targetPosition = _target.position;
+        _targetPosition.y = _targetHeight;
     }
 
     void OnDestroy() {
@@ -56,7 +59,7 @@ public class CameraControl : MonoBehaviour
     }
 
     public void Init() {
-        if (!_init)
+        if (_init == false)
         {
             if (_camera == null)
             {
@@ -72,8 +75,8 @@ public class CameraControl : MonoBehaviour
                 Debug.LogError("Camera target or point is NULL!");
                 return;
             }
-
-            _distance = Vector3.Distance(_target.position, _cameraPoint.position);
+            
+            _distance = Vector3.Distance(_targetPosition, _cameraPoint.position);
             _defaultZoom = _camera.fieldOfView;
 
             InputManager.I.RightStcikEvent += Rotate;
@@ -98,22 +101,22 @@ public class CameraControl : MonoBehaviour
     }
 
     void CollisionToObject() {
-        Vector3 direction = transform.position - _target.position;
+        Vector3 direction = transform.position - _targetPosition;
         RaycastHit hit;
-        if (Physics.Raycast(_target.position, direction.normalized, out hit, _distance, CollisionLayers))
+        if (Physics.Raycast(_targetPosition, direction.normalized, out hit, _distance, CollisionLayers))
         {
 #if UNITY_EDITOR
-            Debug.DrawRay(_target.position, direction.normalized, Color.red, Vector3.Distance(_target.position, hit.point), false);
+            Debug.DrawRay(_targetPosition, direction.normalized, Color.red, Vector3.Distance(_targetPosition, hit.point), false);
 #endif
-            float dis = Vector3.Distance(_target.position, hit.point);
+            float dis = Vector3.Distance(_targetPosition, hit.point);
             if (Mathf.Abs(dis) < _distance)
             {
-                transform.position = _target.position - transform.forward * dis;
+                transform.position = _targetPosition - transform.forward * dis;
                 return;
             }
         }
 
-        transform.position = _target.position - transform.forward * _distance;
+        transform.position = _targetPosition - transform.forward * _distance;
     }
 
     void LockonTarget(float value, InputManager.ActionState state) {
@@ -126,7 +129,7 @@ public class CameraControl : MonoBehaviour
         {
             //Debug.Log(transform.forward);
             List<Transform> newTargetables = new List<Transform>();
-            Collider[] colliders = Physics.OverlapSphere(_target.position, _lockonDistance, LockonLayers);
+            Collider[] colliders = Physics.OverlapSphere(_targetPosition, _lockonDistance, LockonLayers);
             foreach (var collider in colliders)
             {
                 var character = collider.GetComponent<ICharacter>();
@@ -168,26 +171,21 @@ public class CameraControl : MonoBehaviour
 
             if (_lockonTargets.Count > 0)
             {
-                Vector3 targetToLockonTarget = _lockonTargets[_lockonIndex].position - _target.position - Vector3.right;
+                Vector3 direction = _lockonTargets[_lockonIndex].position - _targetPosition;
+                Vector3 targetToLockonTarget = direction - _lockonOffset;
                 var to = Quaternion.LookRotation(targetToLockonTarget, Vector3.up);
                 transform.rotation = Quaternion.Lerp(transform.rotation, to, Time.deltaTime * _lockonSpeed);
                 _camera.fieldOfView = Mathf.Lerp(_camera.fieldOfView, _zoomIn, Time.deltaTime * _lockonSpeed);
+                float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+                _target.rotation = Quaternion.AngleAxis(angle, Vector3.up);
 
+                //ロックオンのUIのポジション
                 var screenPos = _camera.WorldToScreenPoint(_lockonTargets[_lockonIndex].position);
                 screenPos.z = 0;
                 GlobalMessenger<Vector2>.Launch(EventMsg.LockOnEnter, screenPos);
             }
 
-            //if (transform.forward.z >= 0)
-            //{
-            //    transform.position = _target.position - transform.forward * _distance + Vector3.right * _lockonOffsetX;
-            //}
-            //else
-            //{
-            //    transform.position = _target.position - transform.forward * _distance + Vector3.left * _lockonOffsetX;
-            //}
-            transform.position = _target.position - transform.forward * _distance;
-
+            transform.position = _targetPosition - transform.forward * _distance;
         }
         else
         {
@@ -222,12 +220,12 @@ public class CameraControl : MonoBehaviour
     bool IsBlocked(Vector3 v)
     {
         float radius = 0.2f;
-        Vector3 direction = v - _target.position;
-        float distance = Vector3.Distance(v, _target.position);
+        Vector3 direction = v - _targetPosition;
+        float distance = Vector3.Distance(v, _targetPosition);
 #if UNITY_EDITOR
-        Debug.DrawRay(_target.position, direction.normalized, Color.yellow, distance, false);
+        Debug.DrawRay(_targetPosition, direction.normalized, Color.yellow, distance, false);
 #endif
-        bool isBlocked = Physics.SphereCast(_target.position, radius, direction.normalized, out RaycastHit hit, distance, CollisionLayers);
+        bool isBlocked = Physics.SphereCast(_targetPosition, radius, direction.normalized, out RaycastHit hit, distance, CollisionLayers);
         if (isBlocked)
         {
             Debug.Log(hit.transform.name);
@@ -262,7 +260,7 @@ public class CameraControl : MonoBehaviour
 #if UNITY_EDITOR
     void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(_target.position, _lockonDistance);
+        Gizmos.DrawWireSphere(_targetPosition, _lockonDistance);
     }
 #endif
 }
