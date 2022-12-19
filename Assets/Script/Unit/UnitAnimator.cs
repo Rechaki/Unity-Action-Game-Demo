@@ -7,14 +7,23 @@ public class UnitAnimator : MonoBehaviour
     public Transform parent;
     public float timeScale = 1.0f;
 
+    public delegate void StateChange(string PrevState, string NewState);
+    //public delegate void StateChange(CharacterState PrevState, CharacterState NewState);
+    public StateChange OnStateChange;
+
+    public string CurrentState { get; private set; }
+    //public CharacterState CurrentState => _currentState;
     public AnimatorStateInfo CurrentAnimation => _currentAnimation;
     public AnimatorStateEvents AnimatorStateEvent => _animatorEvent;
-
+    
     [SerializeField]
     Animator _animator;
 
     AnimatorStateEvents _animatorEvent;
+    //CharacterState _currentState;
     AnimatorStateInfo _currentAnimation;
+
+    List<string> _animatorStates = new List<string>();
 
     void Start() {
         if (_animator == null)
@@ -22,13 +31,14 @@ public class UnitAnimator : MonoBehaviour
             Debug.LogError("Animator is NULL!");
             return;
         }
-
+        LoadStateName();
         _animatorEvent = _animator.GetBehaviour<AnimatorStateEvents>();
+        //_currentState = CharacterState.None;
         _animatorEvent.OnEnter += OnStateEnter; 
     }
 
     void Update() {
-        //_currentAnimation = _animator.GetCurrentAnimatorStateInfo(0);
+        
     }
 
     void OnAnimatorMove()
@@ -85,6 +95,40 @@ public class UnitAnimator : MonoBehaviour
     }
 
     void OnStateEnter(AnimatorStateInfo stateInfo, int layerIndex) {
-        _currentAnimation = stateInfo;
+        foreach (var state in _animatorStates)
+        {
+            if (stateInfo.IsName(state))
+            {
+                CurrentState = state;
+                return;
+            }
+        }
+        
+
+    }
+
+    void LoadStateName() {
+        string path = "Data/" + _animator.runtimeAnimatorController.name;
+        Debug.Log(path);
+        TextAsset file = Resources.Load(path) as TextAsset;
+        if (file != null)
+        {
+            List<string[]> data = new List<string[]>();
+            System.IO.StringReader sr = new System.IO.StringReader(file.text);
+            while (sr.Peek() >= 0)
+            {
+                string line = sr.ReadLine();
+                data.Add(line.Split(','));
+            }
+
+            foreach (var line in data)
+            {
+                foreach (var item in line)
+                {
+                    _animatorStates.Add(item);
+                }
+            }
+        }
+        
     }
 }

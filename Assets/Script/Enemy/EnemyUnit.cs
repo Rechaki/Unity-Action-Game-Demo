@@ -16,14 +16,14 @@ public class EnemyUnit : MonoBehaviour
     protected List<float> _buffTimer = new List<float>();
 
     EnemyData _enemyData;
-    StateMachine _currentState;
+    CharacterState _currentState;
 
-    protected delegate void StateChange(StateMachine NewState, StateMachine PrevState);
+    protected delegate void StateChange(CharacterState NewState, CharacterState PrevState);
     protected StateChange OnStateChange;
 
     protected EnemyData Data => _enemyData;
 
-    protected StateMachine CurrentState
+    protected CharacterState CurrentState
     {
         get
         {
@@ -37,7 +37,7 @@ public class EnemyUnit : MonoBehaviour
             }
             _currentState = value;
 
-            if (value == StateMachine.Dead)
+            if (value == CharacterState.Dead)
             {
                 OnDead();
             }

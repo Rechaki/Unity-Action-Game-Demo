@@ -78,7 +78,6 @@ public class CharacterControl : MonoBehaviour
             {
                 _rotate.Rotate(v);
             }
-
         }
     }
 

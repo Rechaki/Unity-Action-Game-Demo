@@ -1,0 +1,1 @@
+Idle,Roll,Lock On,Draw Sword 1,Slash,Sheath Sword 2,Draw Sword 2,Sheath Sword 1,Slash 2

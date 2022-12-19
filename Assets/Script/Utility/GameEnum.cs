@@ -19,8 +19,9 @@ public enum EnemyType
     Chase = 1,
 }
 
-public enum StateMachine
+public enum CharacterState
 {
+    None,
     Create,
     Idle,
     Attack,
