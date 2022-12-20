@@ -31,6 +31,22 @@ public enum CharacterState
     Dead,
 }
 
+public enum CharacterType
+{
+    Human,
+    Mutant,
+}
+
+public enum AnimationName
+{
+    None,
+    Idle, 
+    LockOn,
+    Swiping, 
+    Punch, 
+    Dying
+}
+
 //スキルのタイプ
 public enum SkillBehavior
 {

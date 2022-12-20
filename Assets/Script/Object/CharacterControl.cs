@@ -74,7 +74,7 @@ public class CharacterControl : MonoBehaviour
             _animator.SetFloat("X", v.x);
             _animator.SetFloat("Y", v.y);
 
-            if (_isLockon == false && _animator.CurrentAnimation.IsName(DefaultState))
+            if (_isLockon == false && _animator.CurrentState.Equals(DefaultState))
             {
                 _rotate.Rotate(v);
             }

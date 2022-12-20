@@ -1,0 +1,1 @@
+Idle,Swiping,Punch,Dying

@@ -17,10 +17,10 @@ public static class AnimatorEditorUtility
             {
                 var animatorController = Selection.objects[0] as AnimatorController;
                 var stateMachine = animatorController.layers[0].stateMachine;
-                string path = "Resources/Data/" + animatorController.name + ".txt";
+                string path = "/Resources/Data/" + animatorController.name + ".txt";
                 string content = "";
                 var result = new Dictionary<string, string>();
-                GetAllStatesAndFullPaths(animatorController.layers[0].stateMachine, null, result);
+                GetAllStatesAndFullPaths(stateMachine, null, result);
 
                 foreach (var item in result)
                 {
@@ -67,8 +67,8 @@ public static class AnimatorEditorUtility
 
     static void CreateText(string path, string content) {
         string fullPath = Application.dataPath + path;
-        File.WriteAllText(fullPath, content);
         Debug.Log(fullPath);
+        File.WriteAllText(fullPath, content);
         Debug.Log(content);
     }
 }

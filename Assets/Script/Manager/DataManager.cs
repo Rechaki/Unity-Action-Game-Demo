@@ -2,15 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataManager : Singleton<DataManager>
+public class DataManager
 {
+    static DataManager instance = null;
+    public static DataManager I
+    {
+        get
+        {
+            if (instance == null)
+            {
+                new DataManager();
+            }
+            return instance;
+        }
+    }
     public PlayerData PlayerData { get; private set; }
     public bool GameOver { get; private set; }
+
+    public Dictionary<CharacterType, Dictionary<AnimationName, SingleAnimationData>> AnimationDic { get; private set; }
 
     Dictionary<string, CharacterBaseData> _characterDic = new Dictionary<string, CharacterBaseData>();
     Dictionary<string, EnemyBaseData> _enemyDic = new Dictionary<string, EnemyBaseData>();
     Dictionary<string, SkillData> _skillDic = new Dictionary<string, SkillData>();
     Dictionary<string, BuffData> _buffDic = new Dictionary<string, BuffData>();
+
     GameStateData _stateData;
     bool _inited = false;
 
@@ -31,6 +46,8 @@ public class DataManager : Singleton<DataManager>
         EnemyDataInit();
         BuffDataInit();
         SkillDataInit();
+
+        AnimationDataInit();
     }
 
     public void Unload() {
@@ -205,4 +222,18 @@ public class DataManager : Singleton<DataManager>
         }
     }
 
+    void AnimationDataInit()
+    {
+        AnimationDic = new Dictionary<CharacterType, Dictionary<AnimationName, SingleAnimationData>>();
+        //Mutant Animation Data Init
+
+        AnimationDic.Add(CharacterType.Mutant, new Dictionary<AnimationName, SingleAnimationData> {
+            { AnimationName.Idle, new SingleAnimationData(AnimationName.Idle, 0, 0)},
+            { AnimationName.LockOn, new SingleAnimationData(AnimationName.LockOn, 0, 1)},
+            { AnimationName.Punch, new SingleAnimationData(AnimationName.Punch, 1.1f, 3) },
+            { AnimationName.Swiping, new SingleAnimationData(AnimationName.Swiping, 2.667f, 3) },
+            { AnimationName.Dying, new SingleAnimationData(AnimationName.Dying, 4.6f, 10) },
+        });
+
+    }
 }

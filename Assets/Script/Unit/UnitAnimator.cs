@@ -13,15 +13,11 @@ public class UnitAnimator : MonoBehaviour
 
     public string CurrentState { get; private set; }
     //public CharacterState CurrentState => _currentState;
-    public AnimatorStateInfo CurrentAnimation => _currentAnimation;
-    public AnimatorStateEvents AnimatorStateEvent => _animatorEvent;
+    public AnimatorStateInfo CurrentAnimation { get; private set; }
+    public AnimatorStateEvents AnimatorStateEvent { get; private set; }
     
     [SerializeField]
     Animator _animator;
-
-    AnimatorStateEvents _animatorEvent;
-    //CharacterState _currentState;
-    AnimatorStateInfo _currentAnimation;
 
     List<string> _animatorStates = new List<string>();
 
@@ -31,10 +27,13 @@ public class UnitAnimator : MonoBehaviour
             Debug.LogError("Animator is NULL!");
             return;
         }
+
         LoadStateName();
-        _animatorEvent = _animator.GetBehaviour<AnimatorStateEvents>();
+        CurrentState = "Idle";
+
+        AnimatorStateEvent = _animator.GetBehaviour<AnimatorStateEvents>();
         //_currentState = CharacterState.None;
-        _animatorEvent.OnEnter += OnStateEnter; 
+        AnimatorStateEvent.OnEnter += OnStateEnter; 
     }
 
     void Update() {
@@ -61,21 +60,21 @@ public class UnitAnimator : MonoBehaviour
             return;
         }
 
-        if (_currentAnimation.IsName(name) == false)
+        if (CurrentAnimation.Equals(name) == false)
         {
             _animator.Play(name);
         }
 
     }
 
-    public void CrossFade(string name, float duration, int layer = -1) {
+    public void CrossFade(string name, float duration, int layer = 0) {
         if (_animator == null)
         {
             Debug.LogError("Animator is NULL!");
             return;
         }
 
-        if (_currentAnimation.IsName(name) == false)
+        if (CurrentAnimation.IsName(name) == false)
         {
             _animator.CrossFade(name, duration, layer);
         }
@@ -99,6 +98,7 @@ public class UnitAnimator : MonoBehaviour
         {
             if (stateInfo.IsName(state))
             {
+                OnStateChange?.Invoke(CurrentState, state);
                 CurrentState = state;
                 return;
             }
@@ -109,7 +109,6 @@ public class UnitAnimator : MonoBehaviour
 
     void LoadStateName() {
         string path = "Data/" + _animator.runtimeAnimatorController.name;
-        Debug.Log(path);
         TextAsset file = Resources.Load(path) as TextAsset;
         if (file != null)
         {
