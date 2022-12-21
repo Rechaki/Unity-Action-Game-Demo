@@ -5,8 +5,8 @@ using UnityEngine;
 public class UnitRotate : MonoBehaviour
 {
     public Camera characterCamera;
-    public float rotateSpeed;
-    public float timeScale;
+    public float rotateSpeed = 1f;
+    public float timeScale = 1f;
 
     float _tagetAngle;
     bool _canRotate = true;
@@ -42,24 +42,12 @@ public class UnitRotate : MonoBehaviour
             return;
         }
 
-        float currAngle = transform.rotation.eulerAngles.y;
-        if (currAngle > 180.00f)
-        {
-            currAngle -= 360.00f;
-        }
-        float diffAngle = _tagetAngle - currAngle;
-        float reverseAngle = _tagetAngle > currAngle ? (_tagetAngle - 360.00f - currAngle) : (_tagetAngle + 360.00f - currAngle);
-        bool counterclockwise = Mathf.Abs(reverseAngle) > Mathf.Abs(diffAngle) ? (diffAngle < 0) : (reverseAngle < 0);
-        float rotSpeed = Mathf.Min(rotateSpeed * timeScale * Time.deltaTime, Mathf.Abs(diffAngle), Mathf.Abs(reverseAngle));
-        if (counterclockwise)
-        {
-            rotSpeed *= -1;
-        }
-        transform.Rotate(new Vector3(0, rotSpeed, 0));
+        Quaternion rotation = Quaternion.AngleAxis(_tagetAngle, Vector3.up);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotateSpeed * timeScale * Time.deltaTime);
     }
 
     bool DoneRotate() {
-        return Mathf.Abs(transform.rotation.eulerAngles.y - _tagetAngle) < Mathf.Min(0.01f, rotateSpeed * Time.deltaTime);
+        return Mathf.Abs(transform.rotation.eulerAngles.y - _tagetAngle) < 1f;
     }
 
     public void RotateTo(float angle) {

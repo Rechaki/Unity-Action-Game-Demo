@@ -43,10 +43,6 @@ public class UnitMove : MonoBehaviour
         _rigidbody.velocity = _inputShift * moveSpeed * timeScale;
     }
 
-    public void Roll() {
-        //_rigidbody.AddForce(transform.forward * 10, ForceMode.Impulse);
-    }
-
     Vector3 DiagonalMoveNum(Vector2 v)
     {
         float x = v.x;

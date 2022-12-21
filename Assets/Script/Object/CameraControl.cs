@@ -39,8 +39,8 @@ public class CameraControl : MonoBehaviour
 
     List<Transform> _lockonTargets = new List<Transform>();
 
-    const int CollisionLayers = ~(1 << 5 | 1 << 9 | 1 << 10);
-    const int LockonLayers = 1 << 9;
+    const int COLLISION_LAYERS = ~(1 << 5 | 1 << 9 | 1 << 10);
+    const int LOCKON_LAYERS = 1 << 9;
 
     void Start() {
         Init();
@@ -103,7 +103,7 @@ public class CameraControl : MonoBehaviour
     void CollisionToObject() {
         Vector3 direction = transform.position - _targetPosition;
         RaycastHit hit;
-        if (Physics.Raycast(_targetPosition, direction.normalized, out hit, _distance, CollisionLayers))
+        if (Physics.Raycast(_targetPosition, direction.normalized, out hit, _distance, COLLISION_LAYERS))
         {
 #if UNITY_EDITOR
             Debug.DrawRay(_targetPosition, direction.normalized, Color.red, Vector3.Distance(_targetPosition, hit.point), false);
@@ -129,7 +129,7 @@ public class CameraControl : MonoBehaviour
         {
             //Debug.Log(transform.forward);
             List<Transform> newTargetables = new List<Transform>();
-            Collider[] colliders = Physics.OverlapSphere(_targetPosition, _lockonDistance, LockonLayers);
+            Collider[] colliders = Physics.OverlapSphere(_targetPosition, _lockonDistance, LOCKON_LAYERS);
             foreach (var collider in colliders)
             {
                 var character = collider.GetComponent<ICharacter>();
@@ -225,7 +225,7 @@ public class CameraControl : MonoBehaviour
 #if UNITY_EDITOR
         Debug.DrawRay(_targetPosition, direction.normalized, Color.yellow, distance, false);
 #endif
-        bool isBlocked = Physics.SphereCast(_targetPosition, radius, direction.normalized, out RaycastHit hit, distance, CollisionLayers);
+        bool isBlocked = Physics.SphereCast(_targetPosition, radius, direction.normalized, out RaycastHit hit, distance, COLLISION_LAYERS);
         if (isBlocked)
         {
             Debug.Log(hit.transform.name);

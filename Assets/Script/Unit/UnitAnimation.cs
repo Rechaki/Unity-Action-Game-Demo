@@ -7,8 +7,8 @@ public class UnitAnimation : MonoBehaviour
     public Transform parent;
     public float timeScale = 1.0f;
 
-    public delegate void StateChange(string PrevState, string NewState);
-    //public delegate void StateChange(CharacterState PrevState, CharacterState NewState);
+    //public delegate void StateChange(string PrevState, string NewState);
+    public delegate void StateChange(CharacterState PrevState, CharacterState NewState);
     public StateChange OnStateChange;
 
     public SingleAnimationData CurrentAnimation { get; private set; }
@@ -21,6 +21,8 @@ public class UnitAnimation : MonoBehaviour
     [SerializeField]
     AnimationName _default = AnimationName.None;
 
+    float _duration = 0;
+    byte _priority = 0;
     Dictionary<AnimationName, SingleAnimationData> _animations;
 
     void Start()
@@ -31,14 +33,20 @@ public class UnitAnimation : MonoBehaviour
             return;
         }
 
-        AnimatorStateEvent = _animator.GetBehaviour<AnimatorStateEvents>();
-        //_currentState = CharacterState.None;
-        AnimatorStateEvent.OnEnter += OnStateEnter;
+        //AnimatorStateEvent = _animator.GetBehaviour<AnimatorStateEvents>();
+        //AnimatorStateEvent.OnEnter += OnStateEnter;
     }
 
     void Update()
     {
-
+        if (CurrentAnimation.Duration > 0)
+        {
+            _duration -= Time.deltaTime;
+            if (_duration <= 0)
+            {
+                _priority = 0;
+            }
+        }
     }
 
     void OnAnimatorMove()
@@ -48,8 +56,8 @@ public class UnitAnimation : MonoBehaviour
             Debug.LogWarning("Parent is NULL!!");
             return;
         }
-        var deltaPosition = _animator.deltaPosition;
-        parent.position += deltaPosition;
+
+        parent.position += _animator.deltaPosition;
         //var deltaRotation = _animator.deltaRotation;
         //parent.localRotation = deltaRotation * parent.localRotation;
     }
@@ -87,6 +95,9 @@ public class UnitAnimation : MonoBehaviour
                 if (data.Priority > CurrentAnimation.Priority)
                 {
                     _animator.Play(name.ToString());
+                    CurrentAnimation = data;
+                    _duration = data.Duration;
+                    _priority = data.Priority;
                 }
             }
 
@@ -114,6 +125,9 @@ public class UnitAnimation : MonoBehaviour
                 if (data.Priority > CurrentAnimation.Priority)
                 {
                     _animator.CrossFade(name.ToString(), duration, layer);
+                    CurrentAnimation = data;
+                    _duration = data.Duration;
+                    _priority = data.Priority;
                 }
             }
 
