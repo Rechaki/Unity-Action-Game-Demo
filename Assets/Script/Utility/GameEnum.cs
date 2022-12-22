@@ -44,7 +44,10 @@ public enum AnimationName
     LockOn,
     Swiping, 
     Punch, 
-    Dying
+    Dying,
+    FightIdle,
+    HitToBody,
+    StepBackward,
 }
 
 //スキルのタイプ

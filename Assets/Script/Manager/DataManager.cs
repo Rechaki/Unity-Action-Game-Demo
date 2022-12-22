@@ -29,6 +29,11 @@ public class DataManager
     GameStateData _stateData;
     bool _inited = false;
 
+
+    public DataManager() {
+        instance = this;
+    }
+
     public void Init() {
         if (!_inited)
         {
@@ -42,10 +47,10 @@ public class DataManager
     }
 
     public void Load() {
-        CharacterBaseDataInit();
-        EnemyDataInit();
-        BuffDataInit();
-        SkillDataInit();
+        //CharacterBaseDataInit();
+        //EnemyDataInit();
+        //BuffDataInit();
+        //SkillDataInit();
 
         AnimationDataInit();
     }
@@ -233,6 +238,9 @@ public class DataManager
             { AnimationName.Punch, new SingleAnimationData(AnimationName.Punch, 1.1f, 3) },
             { AnimationName.Swiping, new SingleAnimationData(AnimationName.Swiping, 2.667f, 3) },
             { AnimationName.Dying, new SingleAnimationData(AnimationName.Dying, 4.6f, 10) },
+            { AnimationName.FightIdle, new SingleAnimationData(AnimationName.FightIdle, 2.967f, 1) },
+            { AnimationName.StepBackward, new SingleAnimationData(AnimationName.StepBackward, 0.8f, 1) },
+            { AnimationName.HitToBody, new SingleAnimationData(AnimationName.HitToBody, 1.333f, 2) },
         });
 
     }

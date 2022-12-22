@@ -8,7 +8,7 @@ public class UnitAnimation : MonoBehaviour
     public float timeScale = 1.0f;
 
     //public delegate void StateChange(string PrevState, string NewState);
-    public delegate void StateChange(CharacterState PrevState, CharacterState NewState);
+    public delegate void StateChange(AnimationName PrevState, AnimationName NewState);
     public StateChange OnStateChange;
 
     public SingleAnimationData CurrentAnimation { get; private set; }
@@ -33,18 +33,20 @@ public class UnitAnimation : MonoBehaviour
             return;
         }
 
+        InitAnimationList();
         //AnimatorStateEvent = _animator.GetBehaviour<AnimatorStateEvents>();
         //AnimatorStateEvent.OnEnter += OnStateEnter;
     }
 
     void Update()
     {
-        if (CurrentAnimation.Duration > 0)
+        if (_duration > 0)
         {
             _duration -= Time.deltaTime;
             if (_duration <= 0)
             {
                 _priority = 0;
+                ChangeAnimation(_default);
             }
         }
     }
@@ -75,6 +77,11 @@ public class UnitAnimation : MonoBehaviour
         }
     }
 
+    void ChangeAnimation(AnimationName newState) {
+        OnStateChange?.Invoke(CurrentAnimation.Name, newState);
+        CurrentAnimation = _animations[newState];
+    }
+
     public void Play(AnimationName name)
     {
         if (_animator == null)
@@ -92,10 +99,10 @@ public class UnitAnimation : MonoBehaviour
             SingleAnimationData data;
             if (_animations.TryGetValue(name, out data))
             {
-                if (data.Priority > CurrentAnimation.Priority)
+                if (data.Priority > _priority)
                 {
                     _animator.Play(name.ToString());
-                    CurrentAnimation = data;
+                    ChangeAnimation(name);
                     _duration = data.Duration;
                     _priority = data.Priority;
                 }

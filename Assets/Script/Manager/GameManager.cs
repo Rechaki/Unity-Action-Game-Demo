@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 	public bool Paused { get; private set; }
 
 	InputManager inputMgr;
+	DataManager dataMgr;
 	bool _inited = false;
 
 	void Awake() {
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour
 
 		inputMgr = new InputManager();
 		inputMgr.Init();
+		dataMgr = new DataManager();
+		dataMgr.Init();
 		//
 		//DataManager.I.Init();
 		isGameOver = false;

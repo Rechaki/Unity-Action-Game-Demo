@@ -27,10 +27,12 @@ public class Enemy : MonoBehaviour, ICharacter
     [SerializeField]
     Transform _target;
     float _moveSpeed;
+    float _thinkTimer;
 
     const int COLLISION_LAYERS = ~(1 << 5 | 1 << 9 | 1 << 10);
     const int LOCKON_LAYERS = 1 << 9;
     const float MAX_SPEED = 1f;
+    const float THINK_TIME = 3f;
 
     void Start() {
         if (_lookatTarget == null)
@@ -42,6 +44,7 @@ public class Enemy : MonoBehaviour, ICharacter
             Debug.LogError("eye is null.");
         }
 
+        _unitAnimation.OnStateChange += StateChange;
     }
 
     void Update() {
@@ -51,8 +54,31 @@ public class Enemy : MonoBehaviour, ICharacter
         }
         else
         {
-            ArriveMove();
+            if (_thinkTimer > 0)
+            {
+                var distance = Vector3.Distance(_target.position, transform.position);
+                if (distance < _arriveRadius)
+                {
+                    _unitAnimation.CrossFade(AnimationName.StepBackward);
+                }
+                else
+                {
+                    _unitAnimation.CrossFade(AnimationName.FightIdle);
+                }
+                _thinkTimer -= Time.deltaTime;
+            }
+            else
+            {
+                ArriveMove();
+            }
 
+        }
+    }
+
+    void StateChange(AnimationName PrevState, AnimationName NewState) {
+        if (PrevState == AnimationName.Punch || PrevState == AnimationName.Swiping)
+        {
+            Think();
         }
     }
 
@@ -77,7 +103,11 @@ public class Enemy : MonoBehaviour, ICharacter
             {
                 if (hit.transform.tag == "Player")
                 {
-                    _target = hit.transform;
+                    if (IsBlocked(hit.point) == false)
+                    {
+                        _target = hit.transform;
+                    }
+                    
                 }
             }
 
@@ -92,6 +122,7 @@ public class Enemy : MonoBehaviour, ICharacter
         if (distance < _arriveRadius)
         {
             _moveSpeed = 0;
+            _unitAnimation.Play(AnimationName.Punch);
         }
         else
         {
@@ -109,6 +140,29 @@ public class Enemy : MonoBehaviour, ICharacter
         _unitRotate.RotateTo(direction.x, direction.z);
         _unitRotate.Rotate();
         _unitAnimation.SetFloat("Move", _moveSpeed);
+
+    }
+
+    bool IsBlocked(Vector3 target) {
+        Vector3 direction = target - transform.position;
+        float distance = Vector3.Distance(target, transform.position);
+#if UNITY_EDITOR
+        Debug.DrawRay(target, direction.normalized, Color.yellow, distance, false);
+#endif
+        bool isBlocked = Physics.Raycast(target, direction.normalized, out RaycastHit hit, distance, COLLISION_LAYERS);
+        if (isBlocked)
+        {
+            Debug.Log(hit.transform.name);
+        }
+
+        return isBlocked;
+    }
+
+    void Think() {
+        _thinkTimer = Random.Range(1, THINK_TIME);
+    }
+
+    void PathFollowing() {
 
     }
 
