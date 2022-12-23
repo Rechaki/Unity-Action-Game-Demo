@@ -25,7 +25,11 @@ public class Enemy : MonoBehaviour, ICharacter
     [SerializeField]
     float _slowRadius = 2f;
     [SerializeField]
+    ColliderEvents _damageCollider;
+
     Transform _target;
+    Vector3 _directionToTarget;
+    float _distanceToTarget;
     float _moveSpeed;
     float _thinkTimer;
 
@@ -45,6 +49,7 @@ public class Enemy : MonoBehaviour, ICharacter
         }
 
         _unitAnimation.OnStateChange += StateChange;
+        _damageCollider.OnTriggerEnterEvent += OnDamage;
     }
 
     void Update() {
@@ -54,16 +59,21 @@ public class Enemy : MonoBehaviour, ICharacter
         }
         else
         {
+            _directionToTarget = _target.position - transform.position;
+            _distanceToTarget = Vector3.Distance(_target.position, transform.position);
+
             if (_thinkTimer > 0)
             {
-                var distance = Vector3.Distance(_target.position, transform.position);
-                if (distance < _arriveRadius)
+                if (_distanceToTarget < _arriveRadius)
                 {
                     _unitAnimation.CrossFade(AnimationName.StepBackward);
                 }
                 else
                 {
                     _unitAnimation.CrossFade(AnimationName.FightIdle);
+                    _directionToTarget.Normalize();
+                    _unitRotate.RotateTo(_directionToTarget.x, _directionToTarget.z);
+                    _unitRotate.Rotate();
                 }
                 _thinkTimer -= Time.deltaTime;
             }
@@ -73,6 +83,12 @@ public class Enemy : MonoBehaviour, ICharacter
             }
 
         }
+    }
+
+    void OnDestroy()
+    {
+        _unitAnimation.OnStateChange -= StateChange;
+        _damageCollider.OnTriggerEnterEvent -= OnDamage;
     }
 
     void StateChange(AnimationName PrevState, AnimationName NewState) {
@@ -87,16 +103,16 @@ public class Enemy : MonoBehaviour, ICharacter
         for (int i = 0; i <= _viewRayNum; i++)
         {
             Vector3 rayPos = Quaternion.Euler(0, (_viewAngle / _viewRayNum) * i, 0) * farLeftRayPos;
-            Ray ray = new Ray(transform.position, rayPos);
+            Ray ray = new Ray(_eye.position, rayPos);
             RaycastHit hit = new RaycastHit();
             Physics.Raycast(ray, out hit, _viewRadius, COLLISION_LAYERS);
 
+#if UNITY_EDITOR
             Vector3 pos = _eye.position + rayPos;
             if (hit.transform != null)
             {
                 pos = hit.point;
             }
-#if UNITY_EDITOR
             Debug.DrawLine(_eye.position, pos, Color.red); ;
 #endif
             if (hit.transform != null)
@@ -116,40 +132,36 @@ public class Enemy : MonoBehaviour, ICharacter
     }
 
     void ArriveMove() {
-        var direction = _target.position - transform.position;
-        var distance = Vector3.Distance(_target.position, transform.position);
 
-        if (distance < _arriveRadius)
+        if (_distanceToTarget - _arriveRadius < 0.5f)
         {
             _moveSpeed = 0;
             _unitAnimation.Play(AnimationName.Punch);
         }
         else
         {
-            if (distance > _slowRadius)
+            if (_distanceToTarget > _slowRadius)
             {
                 _moveSpeed = MAX_SPEED;
             }
             else
             {
-                _moveSpeed = MAX_SPEED * distance / _slowRadius;
+                _moveSpeed = MAX_SPEED * _distanceToTarget / _slowRadius;
             }
         }
 
-        direction.Normalize();
-        _unitRotate.RotateTo(direction.x, direction.z);
+        _directionToTarget.Normalize();
+        _unitRotate.RotateTo(_directionToTarget.x, _directionToTarget.z);
         _unitRotate.Rotate();
         _unitAnimation.SetFloat("Move", _moveSpeed);
 
     }
 
     bool IsBlocked(Vector3 target) {
-        Vector3 direction = target - transform.position;
-        float distance = Vector3.Distance(target, transform.position);
 #if UNITY_EDITOR
-        Debug.DrawRay(target, direction.normalized, Color.yellow, distance, false);
+        Debug.DrawRay(target, _directionToTarget.normalized, Color.yellow, _distanceToTarget, false);
 #endif
-        bool isBlocked = Physics.Raycast(target, direction.normalized, out RaycastHit hit, distance, COLLISION_LAYERS);
+        bool isBlocked = Physics.Raycast(target, _directionToTarget.normalized, out RaycastHit hit, _distanceToTarget, COLLISION_LAYERS);
         if (isBlocked)
         {
             Debug.Log(hit.transform.name);
@@ -160,6 +172,14 @@ public class Enemy : MonoBehaviour, ICharacter
 
     void Think() {
         _thinkTimer = Random.Range(1, THINK_TIME);
+    }
+
+    void OnDamage(Collider collider)
+    {
+        if (collider.tag == "Weapon")
+        {
+            _unitAnimation.Play(AnimationName.HitToBody);
+        }
     }
 
     void PathFollowing() {
