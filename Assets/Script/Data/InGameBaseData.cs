@@ -24,22 +24,22 @@ public struct CharacterBaseData
     public string skillId;
 }
 
-public struct EnemyBaseData
-{
-    public string id;
-    public EnemyType type;
-    public int hp;
-    public int mp;
-    public int lv;
-    public int atk;
-    public int def;
-    public float moveSpeed;
-    public float atkSpeed;
-    public float turnSpeed;
-    public float viewRadius;
-    public float viewAngle;
-    public string skillId;
-}
+//public struct EnemyBaseData
+//{
+//    public string id;
+//    public EnemyType type;
+//    public int hp;
+//    public int mp;
+//    public int lv;
+//    public int atk;
+//    public int def;
+//    public float moveSpeed;
+//    public float atkSpeed;
+//    public float turnSpeed;
+//    public float viewRadius;
+//    public float viewAngle;
+//    public string skillId;
+//}
 
 public class AnimationInfo
 {

@@ -1,0 +1,3 @@
+﻿ID,Name,Description,CD,Distance,Angle,AttackType,Buffs,VfxName,HitVfxName,AnimationName
+S0000,普通攻撃,ただ普通攻撃です。,0.3,0,0,4,B0000,,,
+S0001,弾,弾攻撃,1,0,0,4,B0000,,,

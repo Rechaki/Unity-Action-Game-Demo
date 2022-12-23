@@ -1,0 +1,2 @@
+ID,Type,HP,MP,LV,ATK,DEF,MoveSpeed,AtkSpeed,TurnSpeed,ViewRadius,ViewAngle,SkillID
+C0000,30,10,1,2,1,0,1,0,0,3,0,S0000

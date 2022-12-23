@@ -22,7 +22,7 @@ public class DataManager
     public Dictionary<CharacterType, Dictionary<AnimationName, SingleAnimationData>> AnimationDic { get; private set; }
 
     Dictionary<string, CharacterBaseData> _characterDic = new Dictionary<string, CharacterBaseData>();
-    Dictionary<string, EnemyBaseData> _enemyDic = new Dictionary<string, EnemyBaseData>();
+    //Dictionary<string, EnemyBaseData> _enemyDic = new Dictionary<string, EnemyBaseData>();
     Dictionary<string, SkillData> _skillDic = new Dictionary<string, SkillData>();
     Dictionary<string, BuffData> _buffDic = new Dictionary<string, BuffData>();
 
@@ -39,18 +39,18 @@ public class DataManager
         {
             Load();
 
-            GameStateInit();
-            PlayerDataInit();
+            //GameStateInit();
+            //PlayerDataInit();
 
             _inited = true;
         }
     }
 
     public void Load() {
-        //CharacterBaseDataInit();
+        CharacterBaseDataInit();
         //EnemyDataInit();
-        //BuffDataInit();
-        //SkillDataInit();
+        BuffDataInit();
+        SkillDataInit();
 
         AnimationDataInit();
     }
@@ -74,19 +74,19 @@ public class DataManager
         return data;
     }
 
-    public EnemyData GetEnemyData(string id) {
-        EnemyData data = new EnemyData();
-        EnemyBaseData baseData;
-        if (_enemyDic.TryGetValue(id, out baseData))
-        {
-            data = new EnemyData(baseData);
-        }
-        else
-        {
-            Debug.LogError($"No enemy data found for id: {id}");
-        }
-        return data;
-    }
+    //public EnemyData GetEnemyData(string id) {
+    //    EnemyData data = new EnemyData();
+    //    EnemyBaseData baseData;
+    //    if (_enemyDic.TryGetValue(id, out baseData))
+    //    {
+    //        data = new EnemyData(baseData);
+    //    }
+    //    else
+    //    {
+    //        Debug.LogError($"No enemy data found for id: {id}");
+    //    }
+    //    return data;
+    //}
 
     public SkillData GetSkillData(string id) {
         SkillData data = new SkillData();
@@ -130,36 +130,39 @@ public class DataManager
                 character.moveSpeed = float.Parse(item[6]);
                 character.atkSpeed = float.Parse(item[7]);
                 character.viewRadius = float.Parse(item[8]);
+                character.turnSpeed = float.Parse(item[9]);
+                character.viewRadius = float.Parse(item[10]);
+                character.viewAngle = float.Parse(item[11]);
                 character.skillId = item[9];
                 _characterDic.Add(character.id, character);
             }
         }
     }
 
-    void EnemyDataInit() {
-        var data = ResourceManager.I.ReadFile(AssetPath.ENEMY_DATA);
-        foreach (var item in data)
-        {
-            if (item.Length > 0)
-            {
-                EnemyBaseData enemy = new EnemyBaseData();
-                enemy.id = item[0];
-                enemy.type = (EnemyType)int.Parse(item[1]);
-                enemy.hp = int.Parse(item[2]);
-                enemy.mp = int.Parse(item[3]);
-                enemy.lv = int.Parse(item[4]);
-                enemy.atk = int.Parse(item[5]);
-                enemy.def = int.Parse(item[6]);
-                enemy.moveSpeed = float.Parse(item[7]);
-                enemy.atkSpeed = float.Parse(item[8]);
-                enemy.turnSpeed = float.Parse(item[9]);
-                enemy.viewRadius = float.Parse(item[10]);
-                enemy.viewAngle = float.Parse(item[11]);
-                enemy.skillId = item[12];
-                _enemyDic.Add(enemy.id, enemy);
-            }
-        }
-    }
+    //void EnemyDataInit() {
+    //    var data = ResourceManager.I.ReadFile(AssetPath.ENEMY_DATA);
+    //    foreach (var item in data)
+    //    {
+    //        if (item.Length > 0)
+    //        {
+    //            EnemyBaseData enemy = new EnemyBaseData();
+    //            enemy.id = item[0];
+    //            enemy.type = (EnemyType)int.Parse(item[1]);
+    //            enemy.hp = int.Parse(item[2]);
+    //            enemy.mp = int.Parse(item[3]);
+    //            enemy.lv = int.Parse(item[4]);
+    //            enemy.atk = int.Parse(item[5]);
+    //            enemy.def = int.Parse(item[6]);
+    //            enemy.moveSpeed = float.Parse(item[7]);
+    //            enemy.atkSpeed = float.Parse(item[8]);
+    //            enemy.turnSpeed = float.Parse(item[9]);
+    //            enemy.viewRadius = float.Parse(item[10]);
+    //            enemy.viewAngle = float.Parse(item[11]);
+    //            enemy.skillId = item[12];
+    //            _enemyDic.Add(enemy.id, enemy);
+    //        }
+    //    }
+    //}
 
     void BuffDataInit() {
         var data = ResourceManager.I.ReadFile(AssetPath.BUFF_DATA);

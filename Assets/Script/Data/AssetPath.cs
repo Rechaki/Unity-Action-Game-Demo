@@ -18,8 +18,8 @@
     public const string SPRINT_DEAD_VFX = "Prefab/Objects/SprintEnemyDead";
     public const string HP_BAR = "Prefab/Objects/HPBar";
 
-    public const string CHARACTER_DATA = "CSV/CharacterData";
-    public const string ENEMY_DATA = "CSV/EnemyData";
-    public const string SKILL_DATA = "CSV/SkillData";
-    public const string BUFF_DATA = "CSV/BuffData";
+    public const string CHARACTER_DATA = "Data/CSV/CharacterData";
+    public const string ENEMY_DATA = "Data/CSV/EnemyData";
+    public const string SKILL_DATA = "Data/CSV/SkillData";
+    public const string BUFF_DATA = "Data/CSV/BuffData";
 }
