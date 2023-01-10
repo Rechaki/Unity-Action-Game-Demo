@@ -22,8 +22,13 @@ public class CharacterControl : MonoBehaviour
     protected List<BuffData> _buffs = new List<BuffData>();
     protected Queue<BuffData> _buffsWaitingToAdd = new Queue<BuffData>();
     protected List<float> _buffTimer = new List<float>();
-    bool _isLockon = false;
+
     bool _init = false;
+    bool _isAtkState = false;
+    bool _isLockon = false;
+    float _atkSpirit = 0f;
+
+
 
     const string DefaultState = "Idle";
 
@@ -108,6 +113,7 @@ public class CharacterControl : MonoBehaviour
     {
         if (state == InputManager.ActionState.Game)
         {
+            _isAtkState = !_isAtkState;
             _animator.SetTrigger("RightBtnW");
         }
     }
@@ -132,10 +138,12 @@ public class CharacterControl : MonoBehaviour
         if (stateInfo.IsName("Draw Sword 2"))
         {
             _weapon.DrawWeapon();
+            _animator.SetFloat("AtkSpirit", 1);
         }
         else if (stateInfo.IsName("Sheath Sword 2"))
         {
             _weapon.SheathWeapon();
+            _animator.SetFloat("AtkSpirit", 0);
         }
     }
 

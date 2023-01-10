@@ -61,6 +61,7 @@ public class Enemy : MonoBehaviour, ICharacter
         {
             _directionToTarget = _target.position - transform.position;
             _distanceToTarget = Vector3.Distance(_target.position, transform.position);
+            _unitAnimation.SetFloat("Distance", _distanceToTarget);
 
             if (_thinkTimer > 0)
             {
@@ -172,6 +173,7 @@ public class Enemy : MonoBehaviour, ICharacter
 
     void Think() {
         _thinkTimer = Random.Range(1, THINK_TIME);
+        _unitAnimation.SetFloat("ThinkTime", _thinkTimer);
     }
 
     void OnDamage(Collider collider)
