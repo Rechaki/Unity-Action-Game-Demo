@@ -25,6 +25,11 @@ public class UnitAnimation : MonoBehaviour
     byte _priority = 0;
     Dictionary<AnimationName, SingleAnimationData> _animations;
 
+    public void Init()
+    {
+        AnimatorStateEvent = _animator.GetBehaviour<AnimatorStateEvents>();
+    }
+
     void Start()
     {
         if (_animator == null)

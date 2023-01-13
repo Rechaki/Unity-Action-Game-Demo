@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour, ICharacter
     [SerializeField]
     float _slowRadius = 2f;
     [SerializeField]
+    float _atkSpiritMax = 2f;
+    [SerializeField]
     ColliderEvents _damageCollider;
 
     Transform _target;
@@ -32,6 +34,7 @@ public class Enemy : MonoBehaviour, ICharacter
     float _distanceToTarget;
     float _moveSpeed;
     float _thinkTimer;
+    float _atkSpirit;
 
     const int COLLISION_LAYERS = ~(1 << 5 | 1 << 9 | 1 << 10);
     const int LOCKON_LAYERS = 1 << 9;
@@ -48,11 +51,16 @@ public class Enemy : MonoBehaviour, ICharacter
             Debug.LogError("eye is null.");
         }
 
-        _unitAnimation.OnStateChange += StateChange;
-        _damageCollider.OnTriggerEnterEvent += OnDamage;
+        _unitAnimation.Init();
+
+        //_unitAnimation.OnStateChange += StateChange;
+        //_damageCollider.OnTriggerEnterEvent += OnDamage;
+        _unitAnimation.AnimatorStateEvent.OnEnter += Think;
+
     }
 
     void Update() {
+        _unitAnimation.SetBool("HaveTarget", _target != null);
         if (_target == null)
         {
             SetFireView();
@@ -67,20 +75,23 @@ public class Enemy : MonoBehaviour, ICharacter
             {
                 if (_distanceToTarget < _arriveRadius)
                 {
-                    _unitAnimation.CrossFade(AnimationName.StepBackward);
+                    //_unitAnimation.CrossFade(AnimationName.StepBackward);
                 }
                 else
                 {
-                    _unitAnimation.CrossFade(AnimationName.FightIdle);
+                    //_unitAnimation.CrossFade(AnimationName.FightIdle);
                     _directionToTarget.Normalize();
                     _unitRotate.RotateTo(_directionToTarget.x, _directionToTarget.z);
                     _unitRotate.Rotate();
                 }
                 _thinkTimer -= Time.deltaTime;
+                _unitAnimation.SetFloat("ThinkTime", _thinkTimer);
             }
             else
             {
                 ArriveMove();
+                _atkSpirit = Random.Range(0, _atkSpiritMax);
+                _unitAnimation.SetFloat("AtkSpirit", _atkSpirit);
             }
 
         }
@@ -88,7 +99,7 @@ public class Enemy : MonoBehaviour, ICharacter
 
     void OnDestroy()
     {
-        _unitAnimation.OnStateChange -= StateChange;
+        //_unitAnimation.OnStateChange -= StateChange;
         _damageCollider.OnTriggerEnterEvent -= OnDamage;
     }
 
@@ -137,7 +148,7 @@ public class Enemy : MonoBehaviour, ICharacter
         if (_distanceToTarget - _arriveRadius < 0.5f)
         {
             _moveSpeed = 0;
-            _unitAnimation.Play(AnimationName.Punch);
+            //_unitAnimation.Play(AnimationName.Punch);
         }
         else
         {
@@ -171,6 +182,16 @@ public class Enemy : MonoBehaviour, ICharacter
         return isBlocked;
     }
 
+    void Think(AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        if (stateInfo.IsName("Idle"))
+        {
+            _thinkTimer = Random.Range(1, THINK_TIME);
+            _unitAnimation.SetFloat("ThinkTime", _thinkTimer);
+
+        }
+    }
+
     void Think() {
         _thinkTimer = Random.Range(1, THINK_TIME);
         _unitAnimation.SetFloat("ThinkTime", _thinkTimer);
@@ -180,7 +201,7 @@ public class Enemy : MonoBehaviour, ICharacter
     {
         if (collider.tag == "Weapon")
         {
-            _unitAnimation.Play(AnimationName.HitToBody);
+            //_unitAnimation.Play(AnimationName.HitToBody);
         }
     }
 

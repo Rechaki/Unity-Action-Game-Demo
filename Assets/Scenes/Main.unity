@@ -1789,6 +1789,7 @@ MonoBehaviour:
   _viewRayNum: 20
   _arriveRadius: 1
   _slowRadius: 1.5
+  _atkSpiritMax: 2
   _damageCollider: {fileID: 968069735}
 --- !u!54 &968069733
 Rigidbody:
